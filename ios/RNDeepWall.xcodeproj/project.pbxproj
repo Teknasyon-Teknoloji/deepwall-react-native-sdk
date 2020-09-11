@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3804AB262506F6C300333DE7 /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB252506F6C300333DE7 /* DictionaryDecoder.swift */; };
+		3804AB2C2506FB3F00333DE7 /* DWRUserProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB2B2506FB3F00333DE7 /* DWRUserProperties.swift */; };
+		3804AB2E2507B1DD00333DE7 /* RNDeepWallEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */; };
+		3804AB322507B2A100333DE7 /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB312507B2A100333DE7 /* DictionaryEncoder.swift */; };
+		3804AB342507B2D900333DE7 /* RNDeepWallEmitterBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB332507B2D900333DE7 /* RNDeepWallEmitterBridge.m */; };
+		3874AC4925037D23004F4B0F /* RNDeepWallCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874AC4825037D23004F4B0F /* RNDeepWallCore.swift */; };
+		38F02B3D250607F000072173 /* RNDeepWallCoreBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F02B3C250607F000072173 /* RNDeepWallCoreBridge.m */; };
+		B3E7B58A1CC2AC0600A0062D /* RNDeepWall.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */; };
+		DEA58CCB7F4537AAEFFB31EA /* Pods_RNDeepWall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0234213ED241891BF4656FBC /* Pods_RNDeepWall.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0234213ED241891BF4656FBC /* Pods_RNDeepWall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNDeepWall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		134814201AA4EA6300B7C361 /* libRNDeepWall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNDeepWall.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3804AB252506F6C300333DE7 /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
+		3804AB2B2506FB3F00333DE7 /* DWRUserProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWRUserProperties.swift; sourceTree = "<group>"; };
+		3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNDeepWallEmitter.swift; sourceTree = "<group>"; };
+		3804AB312507B2A100333DE7 /* DictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncoder.swift; sourceTree = "<group>"; };
+		3804AB332507B2D900333DE7 /* RNDeepWallEmitterBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDeepWallEmitterBridge.m; sourceTree = "<group>"; };
+		3874AC4725037D23004F4B0F /* RNDeepWall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNDeepWall-Bridging-Header.h"; sourceTree = "<group>"; };
+		3874AC4825037D23004F4B0F /* RNDeepWallCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNDeepWallCore.swift; sourceTree = "<group>"; };
+		38F02B3C250607F000072173 /* RNDeepWallCoreBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDeepWallCoreBridge.m; sourceTree = "<group>"; };
+		B3E7B5881CC2AC0600A0062D /* RNDeepWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNDeepWall.h; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDeepWall.m; sourceTree = "<group>"; };
+		BCE77B7088C9C1175CD80A5C /* Pods-RNDeepWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDeepWall.debug.xcconfig"; path = "Target Support Files/Pods-RNDeepWall/Pods-RNDeepWall.debug.xcconfig"; sourceTree = "<group>"; };
+		EB1628CC2844FDF9AEF4BF7A /* Pods-RNDeepWall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDeepWall.release.xcconfig"; path = "Target Support Files/Pods-RNDeepWall/Pods-RNDeepWall.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEA58CCB7F4537AAEFFB31EA /* Pods_RNDeepWall.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libRNDeepWall.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3804AB232506F69300333DE7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3804AB242506F69B00333DE7 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3804AB242506F69B00333DE7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3804AB252506F6C300333DE7 /* DictionaryDecoder.swift */,
+				3804AB312507B2A100333DE7 /* DictionaryEncoder.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3804AB2A2506FB2900333DE7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3804AB2B2506FB3F00333DE7 /* DWRUserProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3804AB2F2507B1F700333DE7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				3804AB302507B20200333DE7 /* RNDeepWallEmitter */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		3804AB302507B20200333DE7 /* RNDeepWallEmitter */ = {
+			isa = PBXGroup;
+			children = (
+				3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */,
+				3804AB332507B2D900333DE7 /* RNDeepWallEmitterBridge.m */,
+			);
+			path = RNDeepWallEmitter;
+			sourceTree = "<group>";
+		};
+		3874AC4625037CE9004F4B0F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3874AC4825037D23004F4B0F /* RNDeepWallCore.swift */,
+				38F02B3C250607F000072173 /* RNDeepWallCoreBridge.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		38F02B3E25060A6200072173 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				3874AC4725037D23004F4B0F /* RNDeepWall-Bridging-Header.h */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				3804AB2F2507B1F700333DE7 /* Modules */,
+				3804AB2A2506FB2900333DE7 /* Models */,
+				3804AB232506F69300333DE7 /* Common */,
+				38F02B3E25060A6200072173 /* Supporting */,
+				3874AC4625037CE9004F4B0F /* Core */,
+				B3E7B5881CC2AC0600A0062D /* RNDeepWall.h */,
+				B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */,
+				134814211AA4EA7D00B7C361 /* Products */,
+				C91729E89D24B9DF9B6C0E39 /* Pods */,
+				BF9050945CC6FF1339BF1613 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BF9050945CC6FF1339BF1613 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0234213ED241891BF4656FBC /* Pods_RNDeepWall.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C91729E89D24B9DF9B6C0E39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCE77B7088C9C1175CD80A5C /* Pods-RNDeepWall.debug.xcconfig */,
+				EB1628CC2844FDF9AEF4BF7A /* Pods-RNDeepWall.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* RNDeepWall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNDeepWall" */;
+			buildPhases = (
+				1F77A1D240E867B8D910C410 /* [CP] Check Pods Manifest.lock */,
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNDeepWall;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libRNDeepWall.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1170;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNDeepWall" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B511DA1A9E6C8500147676 /* RNDeepWall */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F77A1D240E867B8D910C410 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RNDeepWall-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3874AC4925037D23004F4B0F /* RNDeepWallCore.swift in Sources */,
+				3804AB342507B2D900333DE7 /* RNDeepWallEmitterBridge.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* RNDeepWall.m in Sources */,
+				3804AB2E2507B1DD00333DE7 /* RNDeepWallEmitter.swift in Sources */,
+				3804AB262506F6C300333DE7 /* DictionaryDecoder.swift in Sources */,
+				38F02B3D250607F000072173 /* RNDeepWallCoreBridge.m in Sources */,
+				3804AB322507B2A100333DE7 /* DictionaryEncoder.swift in Sources */,
+				3804AB2C2506FB3F00333DE7 /* DWRUserProperties.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCE77B7088C9C1175CD80A5C /* Pods-RNDeepWall.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNDeepWall;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Supporting/RNDeepWall-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB1628CC2844FDF9AEF4BF7A /* Pods-RNDeepWall.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNDeepWall;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Supporting/RNDeepWall-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNDeepWall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNDeepWall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}
