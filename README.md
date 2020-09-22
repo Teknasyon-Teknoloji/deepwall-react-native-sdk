@@ -27,6 +27,7 @@ end
 ```
 
 - **ANDROID**
+  - Set `minSdkVersion` to  21 in `android/build.gradle`
   - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
 
 **React Native 0.60 and above**
