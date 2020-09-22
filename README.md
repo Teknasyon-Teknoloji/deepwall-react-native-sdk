@@ -40,19 +40,6 @@ Then run `npx pod-install`.
 
 ## Usage
 
-### Before using this package
-- This package still in development and android support is not implemented yet.
-- Until android implementation you need run this package codes only for ios. You may reference example below.
-
-```javascript
-import {Platform} from 'react-native';
-import DeepWall, { DeepWallEnvironments } from 'deepwall-react-native-sdk';
-
-if (Platform.OS === 'ios') {
-  DeepWall.getInstance().initialize('API_KEY', DeepWallEnvironments.SANDBOX);
-}
-```
-
 ### Let's start
 - On application start you need to initialize sdk with api key and environment.
 ```javascript
