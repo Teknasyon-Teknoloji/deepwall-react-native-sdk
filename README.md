@@ -15,7 +15,7 @@
 `$ npm install Teknasyon-Teknoloji/deepwall-react-native-sdk#master --save`
 
 ### Installation Notes
-- IOS
+- **IOS**
   - Set minimum ios version to 10.0 in `ios/Podfile` like: `platform :ios, '10.0'`
   - Add `use_frameworks!` into `ios/Podfile` if not exists.
   - Remove `flipper` from `ios/Podfile` if exists. (Find and remove lines below)
@@ -25,6 +25,10 @@ use_flipper!
   flipper_post_install(installer)
 end
 ```
+
+- **ANDROID**
+  - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
+
 **React Native 0.60 and above**
 
 Run `npx pod-install`. Linking is not required in React Native 0.60 and above.
