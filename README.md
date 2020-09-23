@@ -1,7 +1,7 @@
 
 # DeepWall (deepwall-react-native-sdk)
 
-* This package gives wrapper methods for [DeepWall](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk) sdks.
+* This package gives wrapper methods for sdks. [iOS](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk) - [Android](https://github.com/Teknasyon-Teknoloji/deepwall-android-sdk)
 
 * Before implementing this package, you need to have **api_key** and list of **actions**.
 
