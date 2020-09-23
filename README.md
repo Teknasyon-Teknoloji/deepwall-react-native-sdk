@@ -14,6 +14,11 @@
 
 `$ npm install Teknasyon-Teknoloji/deepwall-react-native-sdk#master --save`
 
+**React Native 0.59 and below**
+
+Run `react-native link deepwall-react-native-sdk` to link the library.
+
+
 ### Installation Notes
 - **IOS**
   - Set minimum ios version to 10.0 in `ios/Podfile` like: `platform :ios, '10.0'`
@@ -25,19 +30,11 @@ use_flipper!
   flipper_post_install(installer)
 end
 ```
+  - Run `$ npx pod-install` or `$ cd ios && pod install`
 
 - **ANDROID**
   - Set `minSdkVersion` to  21 in `android/build.gradle`
   - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
-
-**React Native 0.60 and above**
-
-Run `npx pod-install`. Linking is not required in React Native 0.60 and above.
-
-**React Native 0.59 and below**
-
-Run `react-native link deepwall-react-native-sdk` to link the library.
-Then run `npx pod-install`.
 
 
 ---
