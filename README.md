@@ -1,7 +1,7 @@
 
 # DeepWall (deepwall-react-native-sdk)
 
-* This package gives wrapper methods for [DeepWall](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk) sdks.
+* This package gives wrapper methods for sdks. [iOS](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk) - [Android](https://github.com/Teknasyon-Teknoloji/deepwall-android-sdk)
 
 * Before implementing this package, you need to have **api_key** and list of **actions**.
 
@@ -12,46 +12,29 @@
 
 ## Getting started
 
-`$ npm install Teknasyon-Teknoloji/deepwall-react-native-sdk#master --save`
-
-### Installation Notes
-- IOS
-  - Set minimum ios version to 10.0 in `ios/Podfile` like: `platform :ios, '10.0'`
-  - Add `use_frameworks!` into `ios/Podfile` if not exists.
-  - Remove `flipper` from `ios/Podfile` if exists. (Find and remove lines below)
-```
-use_flipper!
-  post_install do |installer|
-  flipper_post_install(installer)
-end
-```
-**React Native 0.60 and above**
-
-Run `npx pod-install`. Linking is not required in React Native 0.60 and above.
+`$ npm install Teknasyon-Teknoloji/deepwall-react-native-sdk --save`
 
 **React Native 0.59 and below**
 
 Run `react-native link deepwall-react-native-sdk` to link the library.
-Then run `npx pod-install`.
+
+
+### Installation Notes
+- **IOS**
+  - Set minimum ios version to 10.0 in `ios/Podfile` like: `platform :ios, '10.0'`
+  - Add `use_frameworks!` into `ios/Podfile` if not exists.
+  - Remove `flipper` from `ios/Podfile` if exists.
+  - Run `$ npx pod-install` or `$ cd ios && pod install`
+
+- **ANDROID**
+  - Set `minSdkVersion` to  21 in `android/build.gradle`
+  - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
 
 
 ---
 
 
 ## Usage
-
-### Before using this package
-- This package still in development and android support is not implemented yet.
-- Until android implementation you need run this package codes only for ios. You may reference example below.
-
-```javascript
-import {Platform} from 'react-native';
-import DeepWall, { DeepWallEnvironments } from 'deepwall-react-native-sdk';
-
-if (Platform.OS === 'ios') {
-  DeepWall.getInstance().initialize('API_KEY', DeepWallEnvironments.SANDBOX);
-}
-```
 
 ### Let's start
 - On application start you need to initialize sdk with api key and environment.
