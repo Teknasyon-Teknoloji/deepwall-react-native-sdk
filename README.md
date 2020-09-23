@@ -23,13 +23,7 @@ Run `react-native link deepwall-react-native-sdk` to link the library.
 - **IOS**
   - Set minimum ios version to 10.0 in `ios/Podfile` like: `platform :ios, '10.0'`
   - Add `use_frameworks!` into `ios/Podfile` if not exists.
-  - Remove `flipper` from `ios/Podfile` if exists. (Find and remove lines below)
-```
-use_flipper!
-  post_install do |installer|
-  flipper_post_install(installer)
-end
-```
+  - Remove `flipper` from `ios/Podfile` if exists.
   - Run `$ npx pod-install` or `$ cd ios && pod install`
 
 - **ANDROID**
