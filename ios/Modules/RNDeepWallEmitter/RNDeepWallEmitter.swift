@@ -10,13 +10,13 @@ import React
 
 @objc(RNDeepWallEmitter)
 internal class RNDeepWallEmitter: RCTEventEmitter {
-
+	
+	public static var shared: RNDeepWallEmitter?
+	
 	override init() {
 		super.init()
 		
-		if RNDeepWallEmitterSingleton.defaultManager.emitter == nil {
-			RNDeepWallEmitterSingleton.defaultManager.emitter = self
-		}
+		RNDeepWallEmitter.shared = self
 	}
 
 	var hasListener: Bool = false
@@ -45,8 +45,6 @@ internal final class RNDeepWallEmitterSingleton {
 
 	static var defaultManager = RNDeepWallEmitterSingleton()
 
-	var emitter: RNDeepWallEmitter?
-
 	func sendEvent<T: Encodable>(name: String, data: T) {
 
 		guard let encodedData = try? DictionaryEncoder().encode(data) else {
@@ -57,11 +55,11 @@ internal final class RNDeepWallEmitterSingleton {
 	}
 	
 	func sendEvent(name: String, dataEncoded: [String: Any]) {
-		guard self.emitter?.hasListener ?? false else {
+		guard RNDeepWallEmitter.shared?.hasListener ?? false else {
 			return
 		}
 
-		self.emitter?.sendEvent(withName: "DeepWallEvent", body: [
+		RNDeepWallEmitter.shared?.sendEvent(withName: "DeepWallEvent", body: [
 			"event": name,
 			"data": dataEncoded
 		])
