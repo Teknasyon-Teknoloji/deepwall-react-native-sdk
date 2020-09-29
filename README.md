@@ -12,7 +12,7 @@
 
 ## Getting started
 
-`$ npm install Teknasyon-Teknoloji/deepwall-react-native-sdk --save`
+`$ npm install deepwall-react-native-sdk --save`
 
 **React Native 0.59 and below**
 
