@@ -90,6 +90,8 @@ DeepWallEventBus.getInstance().listen(DeepWallEvents.LANDING_OPENED, function (d
 
 - For example you may listen all events from sdk like below.
 ```javascript
+import { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
+
 Object.values(DeepWallEvents).map((item) => {
   DeepWallEventBus.getInstance().listen(item, function (data) {
     console.log(item, data);
