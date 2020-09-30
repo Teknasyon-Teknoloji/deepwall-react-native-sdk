@@ -16,10 +16,14 @@ internal class RNDeepWallEmitter: RCTEventEmitter {
 	override init() {
 		super.init()
 		
-		RNDeepWallEmitter.shared = self
+		if RNDeepWallEmitter.shared?.oldWindow == nil || RNDeepWallEmitter.shared?.oldWindow == RCTPresentedViewController() {
+			self.oldWindow = RCTPresentedViewController()
+			RNDeepWallEmitter.shared = self
+		}
 	}
 
 	var hasListener: Bool = false
+	private var oldWindow: UIViewController?
 
 	override func startObserving() {
 		self.hasListener = true

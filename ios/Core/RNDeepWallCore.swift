@@ -144,9 +144,22 @@ private extension RNDeepWall {
 			
 			let modelDict: [String: Any]
 			if let model = model {
+				
+				let validationType: Int
+				switch model.type {
+				case .purchase:
+					validationType = 1
+				case .restore:
+					validationType = 2
+				case .automatic:
+					validationType = 3
+				@unknown default:
+					validationType = 0
+				}
+				
 				modelDict = [
-					"type": model.type,
-					"result": model.result ?? [:]
+					"type": validationType,
+					"result": try? DictionaryEncoder().encode(model.result)
 				]
 			} else {
 				modelDict = [:]
