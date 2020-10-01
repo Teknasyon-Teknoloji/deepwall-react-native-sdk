@@ -24,7 +24,7 @@ Run `react-native link deepwall-react-native-sdk` to link the library.
   - Set minimum ios version to 10.0 in `ios/Podfile` like: `platform :ios, '10.0'`
   - Add `use_frameworks!` into `ios/Podfile` if not exists.
   - Remove `flipper` from `ios/Podfile` if exists.
-  - Run `$ npx pod-install` or `$ cd ios && pod install`
+  - Run `$ cd ios && pod install`
 
 - **ANDROID**
   - Set `minSdkVersion` to  21 in `android/build.gradle`
