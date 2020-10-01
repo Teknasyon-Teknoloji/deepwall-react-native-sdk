@@ -29,6 +29,21 @@ Run `react-native link deepwall-react-native-sdk` to link the library.
 - **ANDROID**
   - Set `minSdkVersion` to  21 in `android/build.gradle`
   - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
+  - Add new instance of Deepwall package into `src/main/java/com/YOUR-APP-NAME/MainApplication.java`
+```java
+// MainApplication.java
+
+...
+import com.deepwall.RNDeepWallPackage;// <-- Add this line.
+...
+
+protected List<ReactPackage> getPackages() {
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  packages.add(new RNDeepWallPackage()); // <-- Add this line.
+  return packages;
+}
+```
+
 
 
 ---
