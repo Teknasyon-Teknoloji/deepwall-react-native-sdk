@@ -80,7 +80,7 @@ DeepWall.getInstance().updateUserProperties({
 ```javascript
 import DeepWall, { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
-DeepWallEventBus.getInstance().listen(DeepWallEvents.LANDING_OPENED, function (data) {
+DeepWallEventBus.getInstance().addListener(DeepWallEvents.LANDING_OPENED, function (data) {
   console.log(
     'DeepWallEvents.LANDING_OPENED',
     data
@@ -93,12 +93,26 @@ DeepWallEventBus.getInstance().listen(DeepWallEvents.LANDING_OPENED, function (d
 import { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
 Object.values(DeepWallEvents).map((item) => {
-  DeepWallEventBus.getInstance().listen(item, function (data) {
+  DeepWallEventBus.getInstance().addListener(item, function (data) {
     console.log(item, data);
   });
 });
 ```
 
+- Add and remove event listener example
+```javascript
+import { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
+
+componentDidMount() {
+    DeepWallEventBus.getInstance().addListener(DeepWallEvents.LANDING_OPENED, this.landingOpenedListener = data => {
+        // handle the event
+    })
+}
+
+componentWillUnmount() {
+    EventBus.getInstance().removeListener(this.landingOpenedListener);
+}
+```
 
 ---
 

@@ -14,7 +14,7 @@ export default class EventBus {
     return EventBus.instance;
   }
 
-  dispatch(eventName, data) {
+  fireEvent(eventName, data) {
     const Listeners = this.eventListeners[eventName];
 
     if (Array.isArray(Listeners)) {
@@ -26,7 +26,7 @@ export default class EventBus {
     }
   }
 
-  listen(eventName, listener) {
+  addListener(eventName, listener) {
     let listeners = this.eventListeners[eventName];
 
     if (Array.isArray(listeners)) {
@@ -34,5 +34,23 @@ export default class EventBus {
     } else {
       this.eventListeners[eventName] = [listener];
     }
+  }
+
+  removeListener(listener) {
+    Object.keys(this.eventListeners).map(eventName => {
+        let listeners = this.eventListeners[eventName];
+
+        if (listeners) {
+          for (let i = 0, l = listeners.length; i < l; i++) {
+            if (listener === listeners[i]) {
+              listeners.splice(i, 1);
+            }
+          }
+        }
+
+        if (listeners.length === 0) {
+            delete this.eventListeners[eventName];
+        }
+    })
   }
 }
