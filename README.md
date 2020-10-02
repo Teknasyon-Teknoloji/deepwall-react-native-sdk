@@ -58,7 +58,7 @@ DeepWall.getInstance().setUserProperties(
 ```
 
 
-- After setting userProperties, you are ready for requesting landing page with an action name. You can find action name in DeepWall dashboard.
+- After setting userProperties, you are ready for requesting a landing page with an action name. You can find the action name in the DeepWall dashboard.
 ```javascript
 DeepWall.getInstance().requestLanding('AppLaunch');
 ```
