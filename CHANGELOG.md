@@ -9,10 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changelog file.
 
 ### Changed
-- EventBus dispatch and listen method names changed to "fireEvent" and "addListener".
 - Readme android installation section updated.
 
+### Deprecated
+- EventBus "dispatch" and "listen" methods are deprecated.Use "fireEvent" and "addListener" instead.
+
+
 ---
+
 
 ## [1.0.2] - 2020-09-30
 ### Fixed
