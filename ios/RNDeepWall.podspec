@@ -18,8 +18,7 @@ Pod::Spec.new do |s|
 
 
   s.dependency "React"
-  s.dependency "DeepWall", '~> 1.1'
+  s.dependency "DeepWall", '~> 2.0'
 
 end
 
-  

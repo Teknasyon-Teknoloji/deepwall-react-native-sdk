@@ -13,7 +13,7 @@ public final class DWRUserProperties: Decodable {
 	public var uuid: String
 	public var country: String
 	public var language: String
-	public var environmentStyle: Int?
+	public var environmentStyle: UInt?
 	public var debugAdvertiseAttributions: [String]?
 }
 
@@ -23,18 +23,18 @@ extension DWRUserProperties {
 		
 		let dwCountry = DeepWallCountryManager.getCountry(by: self.country)
 		let dwLanguage = DeepWallLanguageManager.getLanguage(by: self.language)
-		let dwEnvironmentStyle: DeepWallEnvironmentStyle?
+		let dwEnvironmentStyle: DeepWallEnvironmentStyle
 		if let environmentStyle = self.environmentStyle {
-			dwEnvironmentStyle = DeepWallEnvironmentStyle.init(rawValue: environmentStyle)
+            dwEnvironmentStyle = DeepWallEnvironmentStyle.init(rawValue: environmentStyle) ?? .automatic
 		} else {
-			dwEnvironmentStyle = nil
+            dwEnvironmentStyle = .automatic
 		}
 		
 		return DeepWallUserProperties(
 			uuid: self.uuid,
 			country: dwCountry,
 			language: dwLanguage,
-			environmentStyle: dwEnvironmentStyle,
+            environmentStyle: dwEnvironmentStyle,
 			debugAdvertiseAttributions: self.debugAdvertiseAttributions)
 	}
 }
