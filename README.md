@@ -88,7 +88,7 @@ DeepWallEventBus.getInstance().addListener(DeepWallEvents.LANDING_OPENED, functi
 });
 ```
 
-- For example you may listen all events from sdk like below.
+- For example, you may listen all events from sdk like below.
 ```javascript
 import { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
@@ -99,7 +99,7 @@ Object.values(DeepWallEvents).map((item) => {
 });
 ```
 
-- Add and remove event listener example
+- Adding and removing event listener example
 ```javascript
 import { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
