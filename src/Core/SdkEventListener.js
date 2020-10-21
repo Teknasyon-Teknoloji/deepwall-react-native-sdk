@@ -18,7 +18,7 @@ export default class SdkEventListener {
     );
 
     NativeEventBusEmitter.addListener('DeepWallEvent', (DeepWallEvent) => {
-      EventBus.getInstance().dispatch(
+      EventBus.getInstance().fireEvent(
         DeepWallEvent.event,
         typeof DeepWallEvent.data === 'undefined' ? null : DeepWallEvent.data,
       );
