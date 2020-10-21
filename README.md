@@ -16,7 +16,7 @@
 
 **React Native 0.59 and below**
 
-Run `react-native link deepwall-react-native-sdk` to link the library.
+Run `$ react-native link deepwall-react-native-sdk` to link the library.
 
 
 ### Installation Notes
@@ -57,7 +57,6 @@ DeepWall.getInstance().setUserProperties(
 );
 ```
 
-
 - After setting userProperties, you are ready for requesting landing page with an action name. You can find action name in DeepWall dashboard.
 ```javascript
 DeepWall.getInstance().requestLanding('AppLaunch');
@@ -67,7 +66,6 @@ DeepWall.getInstance().requestLanding('AppLaunch');
 ```javascript
 DeepWall.getInstance().closeLanding();
 ```
-
 
 - If any of userProperties is changed you need to call updateUserProperties method. (For example if user changed application language)
 ```javascript
@@ -113,6 +111,7 @@ componentWillUnmount() {
     EventBus.getInstance().removeListener(this.landingOpenedListener);
 }
 ```
+
 
 ---
 
