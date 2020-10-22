@@ -2,14 +2,17 @@
  * Events
  */
 export default {
-  LANDING_OPENED: 'landingOpened',
-  LANDING_CLOSED: 'landingClosed',
-  LANDING_RESPONSE_FAILURE: 'landingResponseFailure',
-  LANDING_ACTION_SHOW_DISABLED: 'landingActionShowDisabled',
-  LANDING_PURCHASING_PRODUCT: 'landingPurchasingProduct',
-  LANDING_PURCHASE_SUCCESS: 'landingPurchaseSuccess',
-  LANDING_PURCHASE_FAILED: 'landingPurchaseFailed',
-  LANDING_RESTORE_SUCCESS: 'landingRestoreSuccess',
-  LANDING_RESTORE_FAILED: 'landingRestoreFailed',
-  LANDING_EXTRA_DATA_RECEIVED: 'landingExtraDataReceived',
+  PAYWALL_REQUESTED: 'deepWallPaywallRequested',
+  PAYWALL_RESPONSE_RECEIVED: 'deepWallPaywallResponseReceived',
+  PAYWALL_RESPONSE_FAILURE: 'deepWallPaywallResponseFailure',
+  PAYWALL_OPENED: 'deepWallPaywallOpened',
+  PAYWALL_NOT_OPENED: 'deepWallPaywallNotOpened',
+  PAYWALL_ACTION_SHOW_DISABLED: 'deepWallPaywallActionShowDisabled',
+  PAYWALL_CLOSED: 'deepWallPaywallClosed',
+  PAYWALL_EXTRA_DATA_RECEIVED: 'deepWallPaywallExtraDataReceived',
+  PAYWALL_PURCHASING_PRODUCT: 'deepWallPaywallPurchasingProduct',
+  PAYWALL_PURCHASE_SUCCESS: 'deepWallPaywallPurchaseSuccess',
+  PAYWALL_PURCHASE_FAILED: 'deepWallPaywallPurchaseFailed',
+  PAYWALL_RESTORE_SUCCESS: 'deepWallPaywallRestoreSuccess',
+  PAYWALL_RESTORE_FAILED: 'deepWallPaywallRestoreFailed',
 };

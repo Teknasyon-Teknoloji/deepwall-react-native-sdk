@@ -1,5 +1,5 @@
 import {NativeModules} from 'react-native';
-import {DeepWallException} from '../Exceptions/DeepWallException';
+import DeepWallException from '../Exceptions/DeepWallException';
 import ErrorCodes from '../Enums/ErrorCodes';
 import ValidateReceiptTypes from '../Enums/ValidateReceiptTypes';
 import SdkEventListener from './SdkEventListener';

@@ -1,5 +1,5 @@
 import {NativeEventEmitter, NativeModules} from 'react-native';
-import {DeepWallException} from '../Exceptions/DeepWallException';
+import DeepWallException from '../Exceptions/DeepWallException';
 import ErrorCodes from '../Enums/ErrorCodes';
 import EventBus from './EventBus';
 
