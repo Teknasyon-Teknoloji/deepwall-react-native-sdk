@@ -15,9 +15,9 @@ RCT_EXTERN_METHOD(initialize:(NSString *)apiKey environment:(int)environment)
 RCT_EXTERN_METHOD(setUserProperties:(NSDictionary *)props)
 RCT_EXTERN_METHOD(updateUserProperties:(NSString *)country language:(NSString *)language environmentStyle:(int)environmentStyle debugAdvertiseAttributions:(NSDictionary *)debugAdvertiseAttributions)
 
-RCT_EXTERN_METHOD(requestLanding:(NSString *)action extraData:(NSDictionary *)extraData)
-RCT_EXTERN_METHOD(closeLanding)
-RCT_EXTERN_METHOD(hideLandingLoadingIndicator)
+RCT_EXTERN_METHOD(requestPaywall:(NSString *)action extraData:(NSDictionary *)extraData)
+RCT_EXTERN_METHOD(closePaywall)
+RCT_EXTERN_METHOD(hidePaywallLoadingIndicator)
 
 RCT_EXTERN_METHOD(validateReceipt:(int)type)
 
