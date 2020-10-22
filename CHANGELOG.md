@@ -5,6 +5,28 @@ The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added new events.
+  - `PAYWALL_REQUESTED`
+  - `PAYWALL_RESPONSE_RECEIVED` 
+  - `PAYWALL_NOT_OPENED`
+
+### Changed
+- Method names updated
+  - `requestLanding -> requestPaywall`
+  - `closeLanding -> closePaywall`
+  - `hideLandingLoadingIndicator -> hidePaywallLoadingIndicator`
+- Event names updated
+  - `LANDING_OPENED -> PAYWALL_OPENED`
+  - `LANDING_CLOSED -> PAYWALL_CLOSED`
+  - `LANDING_RESPONSE_FAILURE -> PAYWALL_RESPONSE_FAILURE`
+  - `LANDING_ACTION_SHOW_DISABLED -> PAYWALL_ACTION_SHOW_DISABLED`
+  - `LANDING_PURCHASING_PRODUCT -> PAYWALL_PURCHASING_PRODUCT`
+  - `LANDING_PURCHASE_SUCCESS -> PAYWALL_PURCHASE_SUCCESS`
+  - `LANDING_PURCHASE_FAILED -> PAYWALL_PURCHASE_FAILED`
+  - `LANDING_RESTORE_SUCCESS -> PAYWALL_RESTORE_SUCCESS`
+  - `LANDING_RESTORE_FAILED -> PAYWALL_RESTORE_FAILED`
+  - `LANDING_EXTRA_DATA_RECEIVED -> PAYWALL_EXTRA_DATA_RECEIVED`
 
 
 ---
