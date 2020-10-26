@@ -32,10 +32,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 
+## [1.1.0] - 2020-10-26 
+### Changed
+- Minimum react native version updated to `0.56.0`.
+
+### Added
+- Android debug/release manifest files.
+
+### Fixed
+- Fix android metro bundle not working error.
+
+## Removed
+- Unnecessary dev dependencies removed.
+- Unused root gradle files removed.
+
 ## [1.0.3] - 2020-10-21
 ### Added
 - Changelog file.
-- EventBus "removeListener" method
+- EventBus "removeListener" method.
 
 ### Changed
 - Readme android installation section updated.
