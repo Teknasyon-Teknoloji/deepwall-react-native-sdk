@@ -1,6 +1,7 @@
 package com.deepwall
 
 import android.os.Bundle
+import com.appsflyer.internal.r
 import com.facebook.react.bridge.*
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -37,14 +38,14 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun requestLanding(actionKey: String, extraData: ReadableMap? = null) {
+  fun requestPaywall(actionKey: String, extraData: ReadableMap? = null) {
     var hashMap: HashMap<String, Any> = HashMap()
     var bundle = Bundle()
     if (extraData != null) {
       hashMap = extraData.toHashMap()
       bundle.putSerializable("data", hashMap)
     }
-    DeepWall.showLanding(this.currentActivity!!, actionKey, bundle)
+    DeepWall.showPaywall(this.currentActivity!!, actionKey, bundle)
   }
 
   @ReactMethod
@@ -58,8 +59,24 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun closeLanding() {
-    DeepWall.closeLanding()
+  fun closePayWall() {
+    DeepWall.closePaywall()
+  }
+
+  @ReactMethod
+  fun hidePaywallLoadingIndicator(){
+
+  }
+
+  @ReactMethod
+  fun validateReceipt(validationType: Int) {
+    val validation = when (validationType) {
+      1 -> DeepWallReceiptValidationType.PURCHASE
+      2 -> DeepWallReceiptValidationType.RESTORE
+      3 -> DeepWallReceiptValidationType.AUTOMATIC
+      else -> DeepWallReceiptValidationType.PURCHASE
+    }
+    DeepWall.validateReceipt(validation)
   }
 
   private fun observeDeepWallEvents() {
@@ -68,72 +85,88 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
       var map = WritableNativeMap()
 
       when (it.type) {
-        DeepWallEvent.LANDING_OPENED.value -> {
+        DeepWallEvent.PAYWALL_OPENED.value -> {
           map = WritableNativeMap()
           map.putString("data", it.data.toString())
-          map.putString("event", "landingOpened")
+          map.putString("event", "deepWallPaywallOpened")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.DO_NOT_SHOW.value -> {
           map = WritableNativeMap()
           map.putString("data", it.data.toString())
-          map.putString("event", "landingActionShowDisabled")
+          map.putString("event", "deepWallPaywallActionShowDisabled")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.CLOSED.value -> {
           map = WritableNativeMap()
           map.putString("data", it.data.toString())
-          map.putString("event", "landingClosed")
+          map.putString("event", "deepWallPaywallClosed")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
-        DeepWallEvent.LANDING_PURCHASING_PRODUCT.value -> {
+        DeepWallEvent.PAYWALL_PURCHASING_PRODUCT.value -> {
           map = WritableNativeMap()
           map.putString("data", it.data.toString())
-          map.putString("event", "landingPurchasingProduct")
+          map.putString("event", "deepWallPaywallPurchasingProduct")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
-        DeepWallEvent.LANDING_PURCHASE_FAILED.value -> {
+        DeepWallEvent.PAYWALL_PURCHASE_FAILED.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
-          map.putString("event", "landingPurchaseFailed")
-          deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
-        }
-        DeepWallEvent.LANDING_PURCHASE_SUCCESS.value -> {
-          map = WritableNativeMap()
-          val data = it.data as SubscriptionDetail
+          val data = it.data as SubscriptionErrorResponse
           val modelMap = convertJsonToMap(convertJson(data))
           map.putMap("data", modelMap)
-          map.putString("event", "landingPurchaseSuccess")
+          map.putString("event", "deepWallPaywallPurchaseFailed")
+          deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
+        }
+        DeepWallEvent.PAYWALL_PURCHASE_SUCCESS.value -> {
+          map = WritableNativeMap()
+          val data = it.data as SubscriptionResponse
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
+          map.putString("event", "deepWallPaywallPurchaseSuccess")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
 
-        DeepWallEvent.LANDING_RESPONSE_FAILURE.value -> {
+        DeepWallEvent.PAYWALL_RESPONSE_FAILURE.value -> {
           map = WritableNativeMap()
           val data = it.data as PageResponse
           val modelData = convertJsonToMap(convertJson(data))
           map.putMap("data", modelData)
-          map.putString("event", "landingResponseFailure")
+          map.putString("event", "deepWallPaywallResponseFailure")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
 
-        DeepWallEvent.LANDING_RESTORE_SUCCESS.value -> {
+        DeepWallEvent.PAYWALL_RESTORE_SUCCESS.value -> {
           map = WritableNativeMap()
           map.putString("data", it.data.toString())
-          map.putString("event", "landingRestoreSuccess")
+          map.putString("event", "deepWallPaywallRestoreSuccess")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
 
-        DeepWallEvent.LANDING_RESTORE_FAILED.value -> {
+        DeepWallEvent.PAYWALL_RESTORE_FAILED.value -> {
           map = WritableNativeMap()
           map.putString("data", it.data.toString())
-          map.putString("event", "landingRestoreFailed")
+          map.putString("event", "deepWallPaywallRestoreFailed")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.EXTRA_DATA.value -> {
           map = WritableNativeMap()
           val modelData = it.data?.let { it1 -> convertJson(it1) }?.let { it2 -> convertJsonToMap(it2) }
           map.putMap("data", modelData)
-          map.putString("event", "landingExtraDataReceived")
+          map.putString("event", "deepWallPaywallExtraDataReceived")
+          deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
+        }
+
+        DeepWallEvent.PAYWALL_REQUESTED.value -> {
+          map = WritableNativeMap()
+          map.putString("data", "")
+          map.putString("event", "deepWallPaywallRequested")
+          deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
+        }
+
+        DeepWallEvent.PAYWALL_RESPONSE_RECEIVED.value -> {
+          map = WritableNativeMap()
+          map.putString("data", "")
+          map.putString("event", "deepWallPaywallResponseReceived")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
       }
