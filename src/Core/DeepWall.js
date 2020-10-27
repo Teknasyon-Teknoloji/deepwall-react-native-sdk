@@ -1,5 +1,5 @@
 import {NativeModules} from 'react-native';
-import {DeepWallException} from '../Exceptions/DeepWallException';
+import DeepWallException from '../Exceptions/DeepWallException';
 import ErrorCodes from '../Enums/ErrorCodes';
 import ValidateReceiptTypes from '../Enums/ValidateReceiptTypes';
 import SdkEventListener from './SdkEventListener';
@@ -73,16 +73,16 @@ export default class DeepWall {
     return this;
   }
 
-  hideLandingLoadingIndicator() {
-    this.nativeDeepWall.hideLandingLoadingIndicator();
+  hidePaywallLoadingIndicator() {
+    this.nativeDeepWall.hidePaywallLoadingIndicator();
   }
 
-  requestLanding(actionKey, extraData = null) {
-    this.nativeDeepWall.requestLanding(actionKey, extraData);
+  requestPaywall(actionKey, extraData = null) {
+    this.nativeDeepWall.requestPaywall(actionKey, extraData);
   }
 
-  closeLanding() {
-    this.nativeDeepWall.closeLanding();
+  closePaywall() {
+    this.nativeDeepWall.closePaywall();
   }
 
   validateReceipt(type) {

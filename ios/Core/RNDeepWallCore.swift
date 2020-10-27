@@ -16,18 +16,16 @@ typealias DeepWallDictType = [String: Any]
 @objc(RNDeepWall)
 internal final class RNDeepWall: NSObject {
 	
-	/// DeepWall observers
-	private var kairosObservers: [DeepWallNotifierHub.Observer] = []
-	
+    private var hasDeepWallObservers = false
+    
 	@objc(initialize:environment:)
 	func initialize(apiKey: String, environment: Int) {
 		
-		if kairosObservers.isEmpty {
-			self.observerDeepWallEvents()
+		if !hasDeepWallObservers {
+            DeepWall.shared.observeEvents(for: self)
 		}
 		
 		let env: DeepWallEnvironment = environment == 1 ? .sandbox : .production
-		
 		DeepWall.initialize(apiKey: apiKey, environment: env)
 	}
 	
@@ -45,17 +43,17 @@ internal final class RNDeepWall: NSObject {
 	func updateUserProperties(
 		country: String? = nil,
 		language: String? = nil,
-		environmentStyle: Int = 0,
+		environmentStyle: UInt = 0,
 		debugAdvertiseAttributions: [String]? = nil) {
 		
-		let dwCountry: DeepWallCountry?
+		let dwCountry: String?
 		if let country = country {
 			dwCountry = DeepWallCountryManager.getCountry(by: country)
 		} else {
 			dwCountry = nil
 		}
 		
-		let dwLanguage: DeepWallLanguage?
+		let dwLanguage: String?
 		if let language = language {
 			dwLanguage = DeepWallLanguageManager.getLanguage(by: language)
 		} else {
@@ -63,43 +61,42 @@ internal final class RNDeepWall: NSObject {
 		}
 		
 		
-		let dwEnvironmentStyle: DeepWallEnvironmentStyle?
+		let dwEnvironmentStyle: DeepWallEnvironmentStyle
 		if environmentStyle != 0 {
-			dwEnvironmentStyle = DeepWallEnvironmentStyle.init(rawValue: environmentStyle)
+            dwEnvironmentStyle = DeepWallEnvironmentStyle.init(rawValue: environmentStyle) ?? .automatic
 		} else {
-			dwEnvironmentStyle = nil
+			dwEnvironmentStyle = DeepWall.shared.userProperties().environmentStyle
 		}
-		
-		
+        
 		DeepWall.shared.updateUserProperties(country: dwCountry, language: dwLanguage, environmentStyle: dwEnvironmentStyle, debugAdvertiseAttributions: debugAdvertiseAttributions)
 	}
 	
-	@objc(requestLanding:extraData:)
-	func requestLanding(action: String, extraData: DeepWallExtraDataType? = nil) {
+	@objc(requestPaywall:extraData:)
+    func requestPaywall(action: String, extraData: [String: Any]? = nil) {
 		DispatchQueue.main.async {
 			guard let view = RCTPresentedViewController() else {
 				return
 			}
 			
-			DeepWall.shared.requestLanding(action: action, in: view, extraData: extraData)
+			DeepWall.shared.requestPaywall(action: action, in: view, extraData: extraData)
 		}
 	}
 	
-	@objc(closeLanding)
-	func closeLanding() {
-		DeepWall.shared.closeLanding()
+	@objc(closePaywall)
+	func closePaywall() {
+		DeepWall.shared.closePaywall()
 	}
 	
-	@objc(hideLandingLoadingIndicator)
-	func hideLandingLoadingIndicator() {
-		DeepWall.shared.hideLandingLoadingIndicator()
+	@objc(hidePaywallLoadingIndicator)
+	func hidePaywallLoadingIndicator() {
+		DeepWall.shared.hidePaywallLoadingIndicator()
 	}
 	
 	
 	@objc(validateReceipt:)
 	func validateReceipt(for type: Int) {
 		
-		let validationType: DeepWallReceiptValidationType
+		let validationType: PloutosValidationType
 		switch type {
 		case 1:
 			validationType = .purchase
@@ -111,89 +108,97 @@ internal final class RNDeepWall: NSObject {
 			return
 		}
 		
-		DeepWall.shared.validateReceipt(for: validationType)
+        Ploutos.shared.validateReceipt(for: validationType)
 	}
 }
 
-
-/// MARK: - Private Functions
-private extension RNDeepWall {
-	
-	func observerDeepWallEvents() {
-		let landingOpenedObserver = DeepWallNotifierHub.observe(.landingOpened) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingOpened", data: model)
-		}
-		
-		let landingClosedObserver = DeepWallNotifierHub.observe(.landingClosed) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingClosed", data: model)
-		}
-		
-		let landingResponseFailureObserver = DeepWallNotifierHub.observe(.landingResponseFailure) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingResponseFailure", data: model)
-		}
-		
-		let landingActionShowDisabledObserver = DeepWallNotifierHub.observe(.landingActionShowDisabled) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingActionShowDisabled", data: model)
-		}
-		
-		let landingPurchasingProductObserver = DeepWallNotifierHub.observe(.landingPurchasingProduct) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingPurchasingProduct", data: model)
-		}
-		
-		let landingPurchaseSuccessObserver = DeepWallNotifierHub.observe(.landingPurchaseSuccess) { model in
-			
-			let modelDict: [String: Any]
-			if let model = model {
-				
-				let validationType: Int
-				switch model.type {
-				case .purchase:
-					validationType = 1
-				case .restore:
-					validationType = 2
-				case .automatic:
-					validationType = 3
-				@unknown default:
-					validationType = 0
-				}
-				
-				modelDict = [
-					"type": validationType,
-					"result": try? DictionaryEncoder().encode(model.result)
-				]
-			} else {
-				modelDict = [:]
-			}
-			
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingPurchaseSuccess", dataEncoded: modelDict)
-		}
-		
-		let landingPurchaseFailedObserver = DeepWallNotifierHub.observe(.landingPurchaseFailed) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingPurchaseFailed", data: model)
-		}
-		
-		let landingRestoreSuccessObserver = DeepWallNotifierHub.observe(.landingRestoreSuccess) {
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingRestoreSuccess", dataEncoded: [:])
-		}
-		
-		let landingRestoreFailedObserver = DeepWallNotifierHub.observe(.landingRestoreFailed) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingRestoreFailed", data: model)
-		}
-		
-		let landingExtraDataReceivedObserver = DeepWallNotifierHub.observe(.landingExtraDataReceived) { model in
-			RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "landingExtraDataReceived", dataEncoded: model)
-		}
-		
-		self.kairosObservers.append(landingOpenedObserver)
-		self.kairosObservers.append(landingClosedObserver)
-		self.kairosObservers.append(landingResponseFailureObserver)
-		self.kairosObservers.append(landingActionShowDisabledObserver)
-		self.kairosObservers.append(landingPurchasingProductObserver)
-		self.kairosObservers.append(landingPurchaseSuccessObserver)
-		self.kairosObservers.append(landingPurchaseFailedObserver)
-		self.kairosObservers.append(landingRestoreSuccessObserver)
-		self.kairosObservers.append(landingRestoreFailedObserver)
-		self.kairosObservers.append(landingExtraDataReceivedObserver)
-	}
-	
+// MARK: - DeepWallNotifierDelegate
+extension RNDeepWall: DeepWallNotifierDelegate {
+    
+    func deepWallPaywallRequested() {
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallRequested", dataEncoded: [:])
+    }
+    
+    func deepWallPaywallResponseReceived() {
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallResponseReceived", dataEncoded: [:])
+    }
+    
+    func deepWallPaywallResponseFailure(_ event: DeepWallPaywallResponseFailedModel) {
+        let data: [String: Any] = [
+            "errorCode": event.errorCode,
+            "reason": event.reason
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallResponseFailure", dataEncoded: data)
+    }
+    
+    func deepWallPaywallOpened(_ event: DeepWallPaywallOpenedInfoModel) {
+        let data: [String: Any] = [
+            "pageId": event.pageId
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallOpened", dataEncoded: data)
+    }
+    
+    func deepWallPaywallNotOpened(_ event: DeepWallPaywallNotOpenedInfoModel) {
+        let data: [String: Any] = [
+            "pageId": event.pageId
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallNotOpened", dataEncoded: data)
+    }
+    
+    func deepWallPaywallActionShowDisabled(_ event: DeepWallPaywallActionShowDisabledInfoModel) {
+        let data: [String: Any] = [
+            "pageId": event.pageId
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallActionShowDisabled", dataEncoded: data)
+    }
+    
+    func deepWallPaywallClosed(_ event: DeepWallPaywallClosedInfoModel) {
+        let data: [String: Any] = [
+            "pageId": event.pageId
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallClosed", dataEncoded: data)
+    }
+    
+    func deepWallPaywallExtraDataReceived(_ event: [AnyHashable : Any]) {
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallExtraDataReceived", dataEncoded: event as! [String: Any])
+    }
+    
+    func deepWallPaywallPurchasingProduct(_ event: DeepWallPaywallPurchasingProduct) {
+        let data: [String: Any] = [
+            "productCode": event.productCode
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallPurchasingProduct", dataEncoded: data)
+    }
+    
+    func deepWallPaywallPurchaseSuccess(_ event: DeepWallValidateReceiptResult) {
+        let data: [String: Any] = [
+            "type": event.type.rawValue,
+            "result": event.result?.toDictionary() ?? [:]
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallPurchaseSuccess", dataEncoded: data)
+    }
+    
+    func deepWallPaywallPurchaseFailed(_ event: DeepWallPurchaseFailedModel) {
+        let data: [String: Any] = [
+            "productCode": event.productCode,
+            "reason": event.reason,
+            "errorCode": event.errorCode,
+            "isPaymentCancelled": event.isPaymentCancelled
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallPurchaseFailed", dataEncoded: data)
+    }
+    
+    func deepWallPaywallRestoreSuccess() {
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallRestoreSuccess", dataEncoded: [:])
+    }
+    
+    func deepWallPaywallRestoreFailed(_ event: DeepWallRestoreFailedModel) {
+        let data: [String: Any] = [
+            "reason": event.reason.rawValue,
+            "errorCode": event.errorCode,
+            "errorText": event.errorText ?? "",
+            "isPaymentCancelled": event.isPaymentCancelled
+        ]
+        RNDeepWallEmitterSingleton.defaultManager.sendEvent(name: "deepWallPaywallRestoreFailed", dataEncoded: data)
+    }
 }

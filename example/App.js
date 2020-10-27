@@ -48,7 +48,7 @@ export default class App extends React.Component {
         <View style={{width: 200}}>
           <Button
             title={'OPEN PAGE'}
-            onPress={() => DeepWall.getInstance().requestLanding('AppLaunch')}
+            onPress={() => DeepWall.getInstance().requestPaywall('AppLaunch')}
           />
         </View>
       </View>

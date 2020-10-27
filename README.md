@@ -16,7 +16,7 @@
 
 **React Native 0.59 and below**
 
-Run `$ react-native link deepwall-react-native-sdk` to link the library.
+Run `$ react-native link deepwall-react-native-sdk` to link the library.
 
 
 ### Installation Notes
@@ -44,7 +44,7 @@ import DeepWall, { DeepWallEnvironments } from 'deepwall-react-native-sdk';
 DeepWall.getInstance().initialize('API_KEY', DeepWallEnvironments.PRODUCTION);
 ```
 
-- Before requesting any landing page you need to set UserProperties (device uuid, country, language). [See all parameters](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk#configuration)
+- Before requesting any paywall you need to set UserProperties (device uuid, country, language). [See all parameters](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk#configuration)
 ```javascript
 import DeepWall, { DeepWallUserProperties } from 'deepwall-react-native-sdk';
 
@@ -57,15 +57,17 @@ DeepWall.getInstance().setUserProperties(
 );
 ```
 
-- After setting userProperties, you are ready for requesting landing page with an action name. You can find action name in DeepWall dashboard.
+
+- After setting userProperties, you are ready for requesting paywall with an action name. You can find action name in DeepWall dashboard.
 ```javascript
-DeepWall.getInstance().requestLanding('AppLaunch');
+DeepWall.getInstance().requestPaywall('AppLaunch');
 ```
 
-- You can also close landing.
+- You can also close paywall.
 ```javascript
-DeepWall.getInstance().closeLanding();
+DeepWall.getInstance().closePaywall();
 ```
+
 
 - If any of userProperties is changed you need to call updateUserProperties method. (For example if user changed application language)
 ```javascript
@@ -78,9 +80,9 @@ DeepWall.getInstance().updateUserProperties({
 ```javascript
 import DeepWall, { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
-DeepWallEventBus.getInstance().addListener(DeepWallEvents.LANDING_OPENED, function (data) {
+DeepWallEventBus.getInstance().addListener(DeepWallEvents.PAYWALL_OPENED, function (data) {
   console.log(
-    'DeepWallEvents.LANDING_OPENED',
+    'DeepWallEvents.PAYWALL_OPENED',
     data
   );
 });
@@ -102,16 +104,15 @@ Object.values(DeepWallEvents).map((item) => {
 import { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
 componentDidMount() {
-    DeepWallEventBus.getInstance().addListener(DeepWallEvents.LANDING_OPENED, this.landingOpenedListener = data => {
+    DeepWallEventBus.getInstance().addListener(DeepWallEvents.PAYWALL_OPENED, this.paywallOpenedListener = data => {
         // handle the event
     })
 }
 
 componentWillUnmount() {
-    EventBus.getInstance().removeListener(this.landingOpenedListener);
+    EventBus.getInstance().removeListener(this.paywallOpenedListener);
 }
 ```
-
 
 ---
 

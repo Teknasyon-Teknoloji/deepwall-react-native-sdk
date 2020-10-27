@@ -3,8 +3,8 @@
   "version": "1.1.0",
   "description": "DeepWall SDK react native wrapper",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk.git"
+    "type": "git",
+    "url": "https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk.git"
   },
   "main": "src/index.js",
   "scripts": {

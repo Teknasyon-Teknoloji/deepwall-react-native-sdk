@@ -1,16 +1,14 @@
 /**
  * Custom Exception
  */
-export default class DeepWallException {
+export default class DeepWallException extends Error {
   constructor(error, meta) {
-    const CustomError = new Error(error.message);
+    super(error.message);
 
-    CustomError.code = error.code;
+    this.code = error.code;
 
     if (meta) {
-      CustomError.meta = meta;
+      this.meta = meta;
     }
-
-    return CustomError;
   }
 }
