@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Added [example file](example/App.js).
 - Added new events.
   - `PAYWALL_REQUESTED`
   - `PAYWALL_RESPONSE_RECEIVED` 
