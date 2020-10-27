@@ -5,8 +5,17 @@ The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+---
+
+
+## [2.0.0] - 2020-10-27
 ### Added
+- Ios sdk v2 implemented.
+- Android sdk v2 implemented.
 - Added [example file](example/App.js).
+- Added Android `validateReceipt` method.
 - Added new events.
   - `PAYWALL_REQUESTED`
   - `PAYWALL_RESPONSE_RECEIVED` 
@@ -28,11 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `LANDING_RESTORE_SUCCESS -> PAYWALL_RESTORE_SUCCESS`
   - `LANDING_RESTORE_FAILED -> PAYWALL_RESTORE_FAILED`
   - `LANDING_EXTRA_DATA_RECEIVED -> PAYWALL_EXTRA_DATA_RECEIVED`
-
-
----
-
-
+ 
 ## [1.1.0] - 2020-10-26 
 ### Changed
 - Minimum react native version updated to `0.56.0`.
