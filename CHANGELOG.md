@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Fix typo for android `closePaywall` method name. `closePayWall -> closePaywall`
+- Fix usage static frameworks on ios podspec file.
 
 
 ---
