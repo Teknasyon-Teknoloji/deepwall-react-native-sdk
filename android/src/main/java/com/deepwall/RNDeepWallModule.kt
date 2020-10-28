@@ -59,7 +59,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun closePayWall() {
+  fun closePaywall() {
     DeepWall.closePaywall()
   }
 
