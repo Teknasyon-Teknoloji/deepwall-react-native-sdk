@@ -4,6 +4,7 @@ import EventBus from './Core/EventBus';
 import Environments from './Enums/Environments';
 import ErrorCodes from './Enums/ErrorCodes';
 import Events from './Enums/Events';
+import ValidateReceiptTypes from './Enums/ValidateReceiptTypes';
 
 export {
   DeepWall as default,
@@ -12,4 +13,5 @@ export {
   Events as DeepWallEvents,
   Environments as DeepWallEnvironments,
   ErrorCodes as DeepWallErrorCodes,
+  ValidateReceiptTypes as DeepWallValidateReceiptTypes,
 };
