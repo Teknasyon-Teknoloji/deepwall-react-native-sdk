@@ -59,7 +59,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun closePayWall() {
+  fun closePaywall() {
     DeepWall.closePaywall()
   }
 
@@ -88,28 +88,32 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
         DeepWallEvent.PAYWALL_OPENED.value -> {
           map = WritableNativeMap()
           val data = it.data as PaywallOpenedInfo
-          map.putString("data", data.pageId.toString())
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallOpened")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.DO_NOT_SHOW.value -> {
           map = WritableNativeMap()
           val data = it.data as PaywallNotOpenedInfo
-          map.putString("data", data.pageId.toString())
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallActionShowDisabled")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.CLOSED.value -> {
           map = WritableNativeMap()
           val data = it.data as PaywallClosedInfo
-          map.putString("data", data.pageId.toString())
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallClosed")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.PAYWALL_PURCHASING_PRODUCT.value -> {
           map = WritableNativeMap()
           val data = it.data as PaywallPurchasingProductInfo
-          map.putString("data", data.productCode)
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallPurchasingProduct")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
