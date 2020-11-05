@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Exported `DeepWallValidateReceiptTypes` enum for using on receipt validation.
 
+## Removed
+- Unnecessary gradle files removed.
+
 
 ---
 
@@ -16,7 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fix typo for android `closePaywall` method name. `closePayWall -> closePaywall`
 - Fix usage static frameworks on ios podspec file.
-
 
 ## [2.0.0] - 2020-10-27
 ### Added
