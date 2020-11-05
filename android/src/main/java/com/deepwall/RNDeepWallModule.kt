@@ -59,7 +59,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun closePaywall() {
+  fun closePayWall() {
     DeepWall.closePaywall()
   }
 
@@ -87,25 +87,29 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
       when (it.type) {
         DeepWallEvent.PAYWALL_OPENED.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallOpenedInfo
+          map.putString("data", data.pageId.toString())
           map.putString("event", "deepWallPaywallOpened")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.DO_NOT_SHOW.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallNotOpenedInfo
+          map.putString("data", data.pageId.toString())
           map.putString("event", "deepWallPaywallActionShowDisabled")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.CLOSED.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallClosedInfo
+          map.putString("data", data.pageId.toString())
           map.putString("event", "deepWallPaywallClosed")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.PAYWALL_PURCHASING_PRODUCT.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallPurchasingProductInfo
+          map.putString("data", data.productCode)
           map.putString("event", "deepWallPaywallPurchasingProduct")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
@@ -128,7 +132,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
 
         DeepWallEvent.PAYWALL_RESPONSE_FAILURE.value -> {
           map = WritableNativeMap()
-          val data = it.data as PageResponse
+          val data = it.data as PaywallFailureResponse
           val modelData = convertJsonToMap(convertJson(data))
           map.putMap("data", modelData)
           map.putString("event", "deepWallPaywallResponseFailure")
