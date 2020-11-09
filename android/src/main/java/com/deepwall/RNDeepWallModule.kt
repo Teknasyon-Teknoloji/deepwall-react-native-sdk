@@ -1,16 +1,15 @@
 package com.deepwall
 
 import android.os.Bundle
-import com.appsflyer.internal.r
 import com.facebook.react.bridge.*
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import deepwall.core.DeepWall
 import deepwall.core.DeepWall.initDeepWallWith
 import deepwall.core.DeepWall.setUserProperties
 import deepwall.core.models.*
 import io.reactivex.functions.Consumer
 import manager.eventbus.EventBus
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -87,25 +86,33 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
       when (it.type) {
         DeepWallEvent.PAYWALL_OPENED.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallOpenedInfo
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallOpened")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.DO_NOT_SHOW.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallNotOpenedInfo
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallActionShowDisabled")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.CLOSED.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallClosedInfo
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallClosed")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
         DeepWallEvent.PAYWALL_PURCHASING_PRODUCT.value -> {
           map = WritableNativeMap()
-          map.putString("data", it.data.toString())
+          val data = it.data as PaywallPurchasingProductInfo
+          val modelMap = convertJsonToMap(convertJson(data))
+          map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallPurchasingProduct")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
@@ -128,7 +135,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
 
         DeepWallEvent.PAYWALL_RESPONSE_FAILURE.value -> {
           map = WritableNativeMap()
-          val data = it.data as PageResponse
+          val data = it.data as PaywallFailureResponse
           val modelData = convertJsonToMap(convertJson(data))
           map.putMap("data", modelData)
           map.putString("event", "deepWallPaywallResponseFailure")
@@ -182,6 +189,9 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
       val value = jsonObject[key]
       if (value is JSONObject) {
         map.putMap(key, convertJsonToMap(value))
+      }
+      else if(value is JSONArray){
+        map.putArray(key, convertJsonToArray(value))
       } else if (value is Boolean) {
         map.putBoolean(key, (value))
       } else if (value is Int) {
@@ -202,6 +212,38 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     val gson = Gson()
     val jsonInString = gson.toJson(model)
     return JSONObject(jsonInString)
+  }
+
+
+  @Throws(JSONException::class)
+  private fun convertJsonToArray(jsonArray: JSONArray): WritableArray? {
+    val array: WritableArray = WritableNativeArray()
+    for (i in 0 until jsonArray.length()) {
+      when (val value = jsonArray[i]) {
+        is JSONObject -> {
+          array.pushMap(convertJsonToMap((value)))
+        }
+        is JSONArray -> {
+          array.pushArray(convertJsonToArray(value))
+        }
+        is Boolean -> {
+          array.pushBoolean((value))
+        }
+        is Int -> {
+          array.pushInt((value))
+        }
+        is Double -> {
+          array.pushDouble((value))
+        }
+        is String -> {
+          array.pushString(value)
+        }
+        else -> {
+          array.pushString(value.toString())
+        }
+      }
+    }
+    return array
   }
 
 

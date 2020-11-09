@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Exported `DeepWallValidateReceiptTypes` enum for using on receipt validation.
 
+### Changed
+- Android deepwall-core module updated to 2.1.0
+
 ## Removed
 - Unnecessary gradle files removed.
 
