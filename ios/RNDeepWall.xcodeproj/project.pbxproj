@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3804AB2E2507B1DD00333DE7 /* RNDeepWallEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */; };
 		38964A742559270500670E7F /* RNDeepWallEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38964A732559270500670E7F /* RNDeepWallEmitter.m */; };
 		38CE4D352559F03A00394A19 /* DWRUserProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CE4D342559F03A00394A19 /* DWRUserProperties.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNDeepWall.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		0234213ED241891BF4656FBC /* Pods_RNDeepWall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNDeepWall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		134814201AA4EA6300B7C361 /* libRNDeepWall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNDeepWall.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNDeepWallEmitter.swift; sourceTree = "<group>"; };
 		38964A722559270500670E7F /* RNDeepWallEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNDeepWallEmitter.h; sourceTree = "<group>"; };
 		38964A732559270500670E7F /* RNDeepWallEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDeepWallEmitter.m; sourceTree = "<group>"; };
 		38CE4D332559F03A00394A19 /* DWRUserProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWRUserProperties.h; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 		3804AB302507B20200333DE7 /* RNDeepWallEmitter */ = {
 			isa = PBXGroup;
 			children = (
-				3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */,
 				38964A722559270500670E7F /* RNDeepWallEmitter.h */,
 				38964A732559270500670E7F /* RNDeepWallEmitter.m */,
 			);
@@ -211,7 +208,6 @@
 			files = (
 				B3E7B58A1CC2AC0600A0062D /* RNDeepWall.m in Sources */,
 				38964A742559270500670E7F /* RNDeepWallEmitter.m in Sources */,
-				3804AB2E2507B1DD00333DE7 /* RNDeepWallEmitter.swift in Sources */,
 				38CE4D352559F03A00394A19 /* DWRUserProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
