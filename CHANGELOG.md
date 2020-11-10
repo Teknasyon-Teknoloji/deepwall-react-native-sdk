@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Exported `DeepWallValidateReceiptTypes` enum for using on receipt validation.
+- Exported `DeepWallValidateReceiptTypes` enum.
 - Rewrite ios side from scratch using objective-c.
 
 ### Changed
