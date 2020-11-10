@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3804AB262506F6C300333DE7 /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB252506F6C300333DE7 /* DictionaryDecoder.swift */; };
-		3804AB2C2506FB3F00333DE7 /* DWRUserProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB2B2506FB3F00333DE7 /* DWRUserProperties.swift */; };
 		3804AB2E2507B1DD00333DE7 /* RNDeepWallEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */; };
-		3804AB322507B2A100333DE7 /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB312507B2A100333DE7 /* DictionaryEncoder.swift */; };
-		3804AB342507B2D900333DE7 /* RNDeepWallEmitterBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804AB332507B2D900333DE7 /* RNDeepWallEmitterBridge.m */; };
-		3874AC4925037D23004F4B0F /* RNDeepWallCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874AC4825037D23004F4B0F /* RNDeepWallCore.swift */; };
-		38F02B3D250607F000072173 /* RNDeepWallCoreBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F02B3C250607F000072173 /* RNDeepWallCoreBridge.m */; };
+		38964A742559270500670E7F /* RNDeepWallEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38964A732559270500670E7F /* RNDeepWallEmitter.m */; };
+		38CE4D352559F03A00394A19 /* DWRUserProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CE4D342559F03A00394A19 /* DWRUserProperties.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNDeepWall.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */; };
 		DEA58CCB7F4537AAEFFB31EA /* Pods_RNDeepWall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0234213ED241891BF4656FBC /* Pods_RNDeepWall.framework */; };
 /* End PBXBuildFile section */
@@ -33,14 +29,11 @@
 /* Begin PBXFileReference section */
 		0234213ED241891BF4656FBC /* Pods_RNDeepWall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNDeepWall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		134814201AA4EA6300B7C361 /* libRNDeepWall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNDeepWall.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3804AB252506F6C300333DE7 /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
-		3804AB2B2506FB3F00333DE7 /* DWRUserProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWRUserProperties.swift; sourceTree = "<group>"; };
 		3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNDeepWallEmitter.swift; sourceTree = "<group>"; };
-		3804AB312507B2A100333DE7 /* DictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncoder.swift; sourceTree = "<group>"; };
-		3804AB332507B2D900333DE7 /* RNDeepWallEmitterBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDeepWallEmitterBridge.m; sourceTree = "<group>"; };
-		3874AC4725037D23004F4B0F /* RNDeepWall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNDeepWall-Bridging-Header.h"; sourceTree = "<group>"; };
-		3874AC4825037D23004F4B0F /* RNDeepWallCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNDeepWallCore.swift; sourceTree = "<group>"; };
-		38F02B3C250607F000072173 /* RNDeepWallCoreBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDeepWallCoreBridge.m; sourceTree = "<group>"; };
+		38964A722559270500670E7F /* RNDeepWallEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNDeepWallEmitter.h; sourceTree = "<group>"; };
+		38964A732559270500670E7F /* RNDeepWallEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDeepWallEmitter.m; sourceTree = "<group>"; };
+		38CE4D332559F03A00394A19 /* DWRUserProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWRUserProperties.h; sourceTree = "<group>"; };
+		38CE4D342559F03A00394A19 /* DWRUserProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWRUserProperties.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNDeepWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNDeepWall.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDeepWall.m; sourceTree = "<group>"; };
 		BCE77B7088C9C1175CD80A5C /* Pods-RNDeepWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDeepWall.debug.xcconfig"; path = "Target Support Files/Pods-RNDeepWall/Pods-RNDeepWall.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,27 +60,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3804AB232506F69300333DE7 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				3804AB242506F69B00333DE7 /* Extensions */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		3804AB242506F69B00333DE7 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3804AB252506F6C300333DE7 /* DictionaryDecoder.swift */,
-				3804AB312507B2A100333DE7 /* DictionaryEncoder.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		3804AB2A2506FB2900333DE7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3804AB2B2506FB3F00333DE7 /* DWRUserProperties.swift */,
+				38CE4D332559F03A00394A19 /* DWRUserProperties.h */,
+				38CE4D342559F03A00394A19 /* DWRUserProperties.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,7 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				3804AB2D2507B1DC00333DE7 /* RNDeepWallEmitter.swift */,
-				3804AB332507B2D900333DE7 /* RNDeepWallEmitterBridge.m */,
+				38964A722559270500670E7F /* RNDeepWallEmitter.h */,
+				38964A732559270500670E7F /* RNDeepWallEmitter.m */,
 			);
 			path = RNDeepWallEmitter;
 			sourceTree = "<group>";
@@ -112,18 +90,10 @@
 		3874AC4625037CE9004F4B0F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3874AC4825037D23004F4B0F /* RNDeepWallCore.swift */,
-				38F02B3C250607F000072173 /* RNDeepWallCoreBridge.m */,
+				B3E7B5881CC2AC0600A0062D /* RNDeepWall.h */,
+				B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		38F02B3E25060A6200072173 /* Supporting */ = {
-			isa = PBXGroup;
-			children = (
-				3874AC4725037D23004F4B0F /* RNDeepWall-Bridging-Header.h */,
-			);
-			path = Supporting;
 			sourceTree = "<group>";
 		};
 		58B511D21A9E6C8500147676 = {
@@ -131,11 +101,7 @@
 			children = (
 				3804AB2F2507B1F700333DE7 /* Modules */,
 				3804AB2A2506FB2900333DE7 /* Models */,
-				3804AB232506F69300333DE7 /* Common */,
-				38F02B3E25060A6200072173 /* Supporting */,
 				3874AC4625037CE9004F4B0F /* Core */,
-				B3E7B5881CC2AC0600A0062D /* RNDeepWall.h */,
-				B3E7B5891CC2AC0600A0062D /* RNDeepWall.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				C91729E89D24B9DF9B6C0E39 /* Pods */,
 				BF9050945CC6FF1339BF1613 /* Frameworks */,
@@ -243,14 +209,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3874AC4925037D23004F4B0F /* RNDeepWallCore.swift in Sources */,
-				3804AB342507B2D900333DE7 /* RNDeepWallEmitterBridge.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNDeepWall.m in Sources */,
+				38964A742559270500670E7F /* RNDeepWallEmitter.m in Sources */,
 				3804AB2E2507B1DD00333DE7 /* RNDeepWallEmitter.swift in Sources */,
-				3804AB262506F6C300333DE7 /* DictionaryDecoder.swift in Sources */,
-				38F02B3D250607F000072173 /* RNDeepWallCoreBridge.m in Sources */,
-				3804AB322507B2A100333DE7 /* DictionaryEncoder.swift in Sources */,
-				3804AB2C2506FB3F00333DE7 /* DWRUserProperties.swift in Sources */,
+				38CE4D352559F03A00394A19 /* DWRUserProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +318,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = RNDeepWall;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Supporting/RNDeepWall-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -378,7 +339,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = RNDeepWall;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Supporting/RNDeepWall-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

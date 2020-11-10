@@ -5,7 +5,7 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface RNDeepWall_Depr : NSObject <RCTBridgeModule>
+@interface RNDeepWall : NSObject <RCTBridgeModule>
 
 @end
   
