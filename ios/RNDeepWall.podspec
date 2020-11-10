@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author             = { "Teknasyon" => "https://teknasyon.com" }
   s.platform     = :ios, "10.0"
   s.source       = { :git => "https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk.git", :tag => s.version }
-  s.source_files  = "**/*.*"
+  s.source_files  = "**/*.{h,m}"
   s.requires_arc = true
   s.swift_version = '5.1'
 
