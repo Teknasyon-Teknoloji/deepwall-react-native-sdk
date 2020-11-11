@@ -5,23 +5,25 @@ The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+---
+
+
+## [2.1.0] - 2020-11-11
 ### Added
 - Exported `DeepWallValidateReceiptTypes` enum.
 - Rewrite ios side from scratch using objective-c.
 
 ### Changed
 - iOS swift file requirement for project is no longer needed.
-- Android deepwall-core module updated to 2.1.0.
+- Android deepwall-core module updated to 2.1.1.
 
 ## Removed
 - Unnecessary gradle files removed.
 
 ## Fixed
 - Fixed android event data models json cast.
-
-
----
-
 
 ## [2.0.1] - 2020-10-28
 ### Fixed
