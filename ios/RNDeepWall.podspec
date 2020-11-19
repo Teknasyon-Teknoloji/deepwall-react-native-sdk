@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNDeepWall"
-  s.version      = "2.1.0"
+  s.version      = "2.2.0"
   s.summary      = "RNDeepWall"
   s.description  = <<-DESC
                   RNDeepWall

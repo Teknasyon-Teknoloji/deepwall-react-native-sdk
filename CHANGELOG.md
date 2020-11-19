@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 
+## [2.2.0] - 2020-11-19
+## Changed
+- Android deepwall-core module updated to 2.1.5.
+
+## Fixed
+- Android wrong event data model fixed.
+
 ## [2.1.0] - 2020-11-11
 ### Added
 - Exported `DeepWallValidateReceiptTypes` enum.
