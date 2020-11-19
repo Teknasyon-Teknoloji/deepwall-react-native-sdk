@@ -94,7 +94,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
         }
         DeepWallEvent.DO_NOT_SHOW.value -> {
           map = WritableNativeMap()
-          val data = it.data as PaywallNotOpenedInfo
+          val data = it.data as PaywallActionShowDisabledInfo
           val modelMap = convertJsonToMap(convertJson(data))
           map.putMap("data", modelMap)
           map.putString("event", "deepWallPaywallActionShowDisabled")
