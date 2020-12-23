@@ -112,8 +112,8 @@ RCT_EXPORT_METHOD(validateReceipt:(int)type)
 
 - (void)deepWallPaywallResponseFailure:(DeepWallPaywallResponseFailedModel *)event {
 	NSDictionary *data = @{
-		@"errorCode": event.errorCode,
-		@"reason": event.reason
+		@"errorCode": event.errorCode ?: @"",
+		@"reason": event.reason ?: @""
 	};
 	[[RNDeepWallEmitterSingleton sharedManager] sendEventWithName:@"deepWallPaywallResponseFailure" dataEncoded:data];
 }
@@ -169,9 +169,9 @@ RCT_EXPORT_METHOD(validateReceipt:(int)type)
 
 - (void)deepWallPaywallPurchaseFailed:(DeepWallPurchaseFailedModel)event {
 	NSDictionary *data = @{
-		@"productCode": event.productCode,
-		@"reason": event.reason,
-		@"errorCode": event.errorCode,
+		@"productCode": event.productCode ?: @"",
+		@"reason": event.reason ?: @"",
+		@"errorCode": event.errorCode ?: @"",
 		@"isPaymentCancelled": @(event.isPaymentCancelled)
 	};
 	[[RNDeepWallEmitterSingleton sharedManager] sendEventWithName:@"deepWallPaywallPurchaseFailed" dataEncoded:data];
@@ -184,8 +184,8 @@ RCT_EXPORT_METHOD(validateReceipt:(int)type)
 - (void)deepWallPaywallRestoreFailed:(DeepWallRestoreFailedModel)event {
 	NSDictionary *data = @{
 		@"reason": @((int)event.reason),
-		@"errorCode": event.errorCode,
-		@"errorText": event.errorText,
+		@"errorCode": event.errorCode ?: @"",
+		@"errorText": event.errorText ?: @"",
 		@"isPaymentCancelled": @(event.isPaymentCancelled)
 	};
 	[[RNDeepWallEmitterSingleton sharedManager] sendEventWithName:@"deepWallPaywallRestoreFailed" dataEncoded:data];
