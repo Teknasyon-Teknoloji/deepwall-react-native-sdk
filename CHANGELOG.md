@@ -5,6 +5,8 @@ The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.2.0...master)
+- On iOS added nullability checks for event models.
+- Android deepwall-core module updated to 2.1.6.
 
 
 ---
