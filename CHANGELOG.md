@@ -4,22 +4,25 @@ All notable changes to this project will be documented in this file.
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.2.0...master)
-- On iOS added nullability checks for event models.
-- Android deepwall-core module updated to 2.1.6.
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.3.0...master)
 
 
 ---
 
 
-## [2.2.0] - 2020-11-19
+## [2.3.0 (2020-12-23)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.2.0...2.3.0)
+## Changed
+- On iOS added nullability checks for event models.
+- Android deepwall-core module updated to 2.1.6.
+
+## [2.2.0 (2020-11-19)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.1.0...2.2.0)
 ## Changed
 - Android deepwall-core module updated to 2.1.5.
 
 ## Fixed
 - Android wrong event data model fixed.
 
-## [2.1.0] - 2020-11-11
+## [2.1.0 (2020-11-11)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.0.1...2.1.0)
 ### Added
 - Exported `DeepWallValidateReceiptTypes` enum.
 - Rewrite ios side from scratch using objective-c.
@@ -34,12 +37,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Fixed
 - Fixed android event data models json cast.
 
-## [2.0.1] - 2020-10-28
+## [2.0.1 (2020-10-28)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.0.0...2.0.1)
 ### Fixed
 - Fix typo for android `closePaywall` method name. `closePayWall -> closePaywall`
 - Fix usage static frameworks on ios podspec file.
 
-## [2.0.0] - 2020-10-27
+## [2.0.0 (2020-10-27)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/1.1.0...2.0.0)
 ### Added
 - Ios sdk v2 implemented.
 - Android sdk v2 implemented.
@@ -66,8 +69,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `LANDING_RESTORE_SUCCESS -> PAYWALL_RESTORE_SUCCESS`
   - `LANDING_RESTORE_FAILED -> PAYWALL_RESTORE_FAILED`
   - `LANDING_EXTRA_DATA_RECEIVED -> PAYWALL_EXTRA_DATA_RECEIVED`
- 
-## [1.1.0] - 2020-10-26 
+
+## [1.1.0 (2020-10-26)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/1.0.3...1.1.0)
 ### Changed
 - Minimum react native version updated to `0.56.0`.
 
@@ -81,7 +84,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unnecessary dev dependencies removed.
 - Unused root gradle files removed.
 
-## [1.0.3] - 2020-10-21
+## [1.0.3 (2020-10-21)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/1.0.2...1.0.3)
 ### Added
 - Changelog file.
 - EventBus "removeListener" method.
@@ -92,17 +95,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 - EventBus "dispatch" and "listen" methods deprecated.Use "fireEvent" and "addListener" instead.
 
-## [1.0.2] - 2020-09-30
+## [1.0.2 (2020-09-30)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/1.0.1...1.0.2)
 ### Fixed
 - Fix ios wrapper event bridge error
 
 ### Changed
 - Readme installation url updated.
 
-## [1.0.1] - 2020-09-29
+## [1.0.1 (2020-09-29)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/1.0.0...1.0.1)
 ### Fixed
 - Fix ios react native bridge handling
 
-## [1.0.0] - 2020-09-23
+## 1.0.0 (2020-09-23)
 ### Added
 - Initial release of the project.
