@@ -2,6 +2,7 @@ import DeepWall from './Core/DeepWall';
 import UserProperties from './Core/UserProperties';
 import EventBus from './Core/EventBus';
 import Environments from './Enums/Environments';
+import EnvironmentStyles from './Enums/EnvironmentStyles';
 import ErrorCodes from './Enums/ErrorCodes';
 import Events from './Enums/Events';
 import ValidateReceiptTypes from './Enums/ValidateReceiptTypes';
@@ -13,5 +14,6 @@ export {
   Events as DeepWallEvents,
   Environments as DeepWallEnvironments,
   ErrorCodes as DeepWallErrorCodes,
+  EnvironmentStyles as DeepWallEnvironmentStyles,
   ValidateReceiptTypes as DeepWallValidateReceiptTypes,
 };
