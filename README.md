@@ -104,13 +104,13 @@ Object.values(DeepWallEvents).map((item) => {
 import { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
 componentDidMount() {
-    DeepWallEventBus.getInstance().addListener(DeepWallEvents.PAYWALL_OPENED, this.paywallOpenedListener = data => {
-        // handle the event
-    })
+  DeepWallEventBus.getInstance().addListener(DeepWallEvents.PAYWALL_OPENED, this.paywallOpenedListener = data => {
+    // handle the event
+  })
 }
 
 componentWillUnmount() {
-    EventBus.getInstance().removeListener(this.paywallOpenedListener);
+  DeepWallEventBus.getInstance().removeListener(this.paywallOpenedListener);
 }
 ```
 
