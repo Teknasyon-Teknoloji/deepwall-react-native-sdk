@@ -76,7 +76,7 @@ DeepWall.getInstance().updateUserProperties({
 });
 ```
 
-- There is also bunch of events triggering before and after DeepWall Actions. You may listen any action like below.
+- There is also bunch of events triggering before and after DeepWall Actions. You may listen any event like below.
 ```javascript
 import DeepWall, { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
