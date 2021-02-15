@@ -5,11 +5,13 @@ The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.3.0...master)
-##Added
-- exported DeepWallEnvironmentStyles.
+## Added
+- Exported DeepWallEnvironmentStyles.
+- Added passing extra data example into readme
 
 ## Fixed
 - Readme file EventBus example typo fixed.
+
 
 ---
 
@@ -54,7 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Android `validateReceipt` method.
 - Added new events.
   - `PAYWALL_REQUESTED`
-  - `PAYWALL_RESPONSE_RECEIVED` 
+  - `PAYWALL_RESPONSE_RECEIVED`
   - `PAYWALL_NOT_OPENED`
 
 ### Changed

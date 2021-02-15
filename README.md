@@ -61,6 +61,9 @@ DeepWall.getInstance().setUserProperties(
 - After setting userProperties, you are ready for requesting paywall with an action name. You can find action name in DeepWall dashboard.
 ```javascript
 DeepWall.getInstance().requestPaywall('AppLaunch');
+
+// You can send extra parameter if needed as below:
+DeepwallFlutterPlugin.requestPaywall(​'AppLaunch'​, {'sliderIndex': 2, 'title': 'Deepwall'});
 ```
 
 - You can also close paywall.
