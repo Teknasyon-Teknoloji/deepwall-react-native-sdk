@@ -63,7 +63,7 @@ DeepWall.getInstance().setUserProperties(
 DeepWall.getInstance().requestPaywall('AppLaunch');
 
 // You can send extra parameter if needed as below:
-DeepwallFlutterPlugin.requestPaywall(​'AppLaunch'​, {'sliderIndex': 2, 'title': 'Deepwall'});
+DeepWall.getInstance().requestPaywall('AppLaunch', {'sliderIndex': 2, 'title': 'Deepwall'});
 ```
 
 - You can also close paywall.
