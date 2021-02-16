@@ -21,8 +21,23 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
 
   var deepWallEmitter = RNDeepWallEmitter(reactContext)
 
+  /*
+   * Whether DeepWall has initialized before or not. This flag will
+   * be used to prevent multiple initializations.
+   */
+  private var isDeepWallInitialized = false
+
   @ReactMethod
   fun initialize(apiKey: String?, environment: Int) {
+
+    // If the library has initialized before, do not do anything.
+    if (isDeepWallInitialized) {
+      return
+    }
+
+    // Set the flag as true here to prevent double calls getting through.
+    isDeepWallInitialized = true
+
     observeDeepWallEvents()
     val deepWallEnvironment = if (environment == 1) DeepWallEnvironment.SANDBOX else DeepWallEnvironment.PRODUCTION
     initDeepWallWith(currentActivity!!.application, this.currentActivity!!, apiKey!!, deepWallEnvironment)

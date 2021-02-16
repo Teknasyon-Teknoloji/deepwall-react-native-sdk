@@ -7,6 +7,8 @@
 
 @interface RNDeepWall() <DeepWallNotifierDelegate>
 
+@property (class) BOOL hasInitialized;
+
 @end
 
 @implementation RNDeepWall
@@ -16,20 +18,35 @@
     return dispatch_get_main_queue();
 }
 
-RCT_EXPORT_MODULE()
+static BOOL hasInitialized;
 
++ (void)setHasInitialized:(BOOL)status {
+    hasInitialized = status;
+}
+
++ (BOOL)hasInitialized {
+    return hasInitialized;
+}
+
+RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(initialize:(NSString *)apiKey environment:(int)environment)
 {
+    if ([RNDeepWall hasInitialized] == YES) {
+        return;
+    }
+
+    [RNDeepWall setHasInitialized:YES];
+
 	[[DeepWallCore shared] observeEventsFor:self];
-	
+
 	DeepWallEnvironment env;
 	if (environment == 1) {
 		env = DeepWallEnvironmentSandbox;
 	} else {
 		env = DeepWallEnvironmentProduction;
 	}
-	
+
 	[DeepWallCore initializeWithApiKey:apiKey environment:env];
 }
 
@@ -37,12 +54,12 @@ RCT_EXPORT_METHOD(setUserProperties:(NSDictionary *)props)
 {
 	NSError *error;
 	DWRUserProperties *dwProps = [[DWRUserProperties alloc] initWithDictionary:props error:&error];
-	
+
 	if (error != nil) {
 		NSLog(@"[RNDeepWall] Failed to set user properties!");
 		return;
 	}
-	
+
 	[[DeepWallCore shared] setUserProperties:[dwProps toDWObject]];
 }
 
@@ -52,19 +69,19 @@ RCT_EXPORT_METHOD(updateUserProperties:(NSString *)country language:(NSString *)
 	if (country != nil) {
 		dwCountry = [DeepWallCountryManager getCountryByCode:country];
 	}
-	
+
 	NSString *dwLanguage = nil;
 	if (language != nil) {
 		dwLanguage = [DeepWallLanguageManager getLanguageByCode:language];
 	}
-	
+
 	DeepWallEnvironmentStyle dwEnvironmentStyle;
 	if (environmentStyle != 0) {
 		dwEnvironmentStyle = (DeepWallEnvironmentStyle)environmentStyle;
 	} else {
 		dwEnvironmentStyle = [[DeepWallCore shared] userProperties].environmentStyle;
 	}
-	
+
 	[[DeepWallCore shared] updateUserPropertiesCountry:dwCountry language:dwLanguage environmentStyle:dwEnvironmentStyle debugAdvertiseAttributions:debugAdvertiseAttributions];
 }
 
@@ -76,10 +93,10 @@ RCT_EXPORT_METHOD(requestPaywall:(NSString *)action extraData:(NSDictionary *)ex
 		if (view == nil) {
 			return;
 		}
-		
+
 		[[DeepWallCore shared] requestPaywallWithAction:action inView:view extraData:extraData];
 	});
-	
+
 }
 
 
@@ -193,4 +210,4 @@ RCT_EXPORT_METHOD(validateReceipt:(int)type)
 
 
 @end
-  
+
