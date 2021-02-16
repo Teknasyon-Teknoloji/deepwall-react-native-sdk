@@ -61,6 +61,9 @@ DeepWall.getInstance().setUserProperties(
 - After setting userProperties, you are ready for requesting paywall with an action name. You can find action name in DeepWall dashboard.
 ```javascript
 DeepWall.getInstance().requestPaywall('AppLaunch');
+
+// You can send extra parameter if needed as below:
+DeepwallFlutterPlugin.requestPaywall(​'AppLaunch'​, {'sliderIndex': 2, 'title': 'Deepwall'});
 ```
 
 - You can also close paywall.
@@ -76,7 +79,7 @@ DeepWall.getInstance().updateUserProperties({
 });
 ```
 
-- There is also bunch of events triggering before and after DeepWall Actions. You may listen any action like below.
+- There is also bunch of events triggering before and after DeepWall Actions. You may listen any event like below.
 ```javascript
 import DeepWall, { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
 
