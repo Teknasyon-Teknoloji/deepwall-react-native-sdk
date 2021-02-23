@@ -78,11 +78,6 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun hidePaywallLoadingIndicator(){
-
-  }
-
-  @ReactMethod
   fun consumeProduct(productId: String) {
     DeepWall.consumeProduct(productId)
   }
@@ -259,7 +254,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
 
-        DeepWallEvent.CONSUME_FAIL.value -> {
+        DeepWallEvent.CONSUME_FAILURE.value -> {
           map = WritableNativeMap()
           map.putString("data", "")
           map.putString("event", "deepWallPaywallConsumeFailure")

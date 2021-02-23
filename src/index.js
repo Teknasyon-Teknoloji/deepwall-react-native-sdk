@@ -6,6 +6,8 @@ import EnvironmentStyles from './Enums/EnvironmentStyles';
 import ErrorCodes from './Enums/ErrorCodes';
 import Events from './Enums/Events';
 import ValidateReceiptTypes from './Enums/ValidateReceiptTypes';
+import ProrationTypes from './Enums/ProrationTypes';
+import UpgradePolicies from './Enums/UpgradePolicies';
 
 export {
   DeepWall as default,
@@ -16,4 +18,6 @@ export {
   ErrorCodes as DeepWallErrorCodes,
   EnvironmentStyles as DeepWallEnvironmentStyles,
   ValidateReceiptTypes as DeepWallValidateReceiptTypes,
+  ProrationTypes as DeepWallProrationTypes,
+  UpgradePolicies as DeepWallUpgradePolicies,
 };

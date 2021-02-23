@@ -26,4 +26,16 @@ export default {
     code: 902,
     message: 'Validate receipt type is not valid.',
   },
+  PRODUCT_ID_REQUIRED: {
+    code: 1001,
+    message: 'Product id is required.',
+  },
+  PRORATION_TYPE_NOT_VALID: {
+    code: 1101,
+    message: 'Proration type is not valid.',
+  },
+  UPGRADE_POLICY_TYPE_NOT_VALID: {
+    code: 1102,
+    message: 'Upgrade policy type is not valid.',
+  },
 };

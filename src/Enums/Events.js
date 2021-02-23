@@ -2,6 +2,7 @@
  * Events
  */
 export default {
+  // Common events
   PAYWALL_REQUESTED: 'deepWallPaywallRequested',
   PAYWALL_RESPONSE_RECEIVED: 'deepWallPaywallResponseReceived',
   PAYWALL_RESPONSE_FAILURE: 'deepWallPaywallResponseFailure',
@@ -15,4 +16,8 @@ export default {
   PAYWALL_PURCHASE_FAILED: 'deepWallPaywallPurchaseFailed',
   PAYWALL_RESTORE_SUCCESS: 'deepWallPaywallRestoreSuccess',
   PAYWALL_RESTORE_FAILED: 'deepWallPaywallRestoreFailed',
+
+  // Android ONLY events
+  PAYWALL_CONSUME_SUCCESS: 'deepWallPaywallConsumeSuccess',
+  PAYWALL_CONSUME_FAIL: 'deepWallPaywallConsumeFailure',
 };
