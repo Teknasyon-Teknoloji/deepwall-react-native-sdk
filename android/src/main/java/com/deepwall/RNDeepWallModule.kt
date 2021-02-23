@@ -78,11 +78,6 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun hidePaywallLoadingIndicator(){
-
-  }
-
-  @ReactMethod
   fun consumeProduct(productId: String) {
     DeepWall.consumeProduct(productId)
   }

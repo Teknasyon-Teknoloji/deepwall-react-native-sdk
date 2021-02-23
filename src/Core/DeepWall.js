@@ -1,8 +1,10 @@
 import {NativeModules} from 'react-native';
 import DeepWallException from '../Exceptions/DeepWallException';
 import ErrorCodes from '../Enums/ErrorCodes';
-import ValidateReceiptTypes from '../Enums/ValidateReceiptTypes';
 import SdkEventListener from './SdkEventListener';
+import CommonMethods from './Methods/CommonMethods';
+import AndroidMethods from './Methods/AndroidMethods';
+import IosMethods from './Methods/IosMethods';
 
 export default class DeepWall {
   nativeDeepWall;
@@ -30,66 +32,74 @@ export default class DeepWall {
     }
   }
 
+  /**
+   * @param apiKey
+   * @param environment
+   * @returns {DeepWall}
+   */
   initialize(apiKey, environment) {
-    this.nativeDeepWall.initialize(apiKey, environment);
+    new CommonMethods(this.nativeDeepWall).initialize(apiKey, environment);
 
     return this;
   }
 
   /**
    * @param {UserProperties} userProperties
+   * @returns {DeepWall}
    */
   setUserProperties(userProperties) {
-    if (!userProperties.get('uuid')) {
-      throw new DeepWallException(ErrorCodes.USER_PROPERTIES_UUID_REQUIRED);
-    }
-
-    if (!userProperties.get('country')) {
-      throw new DeepWallException(ErrorCodes.USER_PROPERTIES_COUNTRY_REQUIRED);
-    }
-
-    if (!userProperties.get('language')) {
-      throw new DeepWallException(ErrorCodes.USER_PROPERTIES_LANGUAGE_REQUIRED);
-    }
-
-    this.nativeDeepWall.setUserProperties(userProperties.get());
+    new CommonMethods(this.nativeDeepWall).setUserProperties(userProperties);
 
     return this;
   }
 
-  updateUserProperties({
-    country,
-    language,
-    environmentStyle = 0,
-    debugAdvertiseAttributions,
-  }) {
-    this.nativeDeepWall.updateUserProperties(
+  /**
+   * @param country
+   * @param language
+   * @param environmentStyle
+   * @param debugAdvertiseAttributions
+   * @returns {DeepWall}
+   */
+  updateUserProperties({country, language, environmentStyle = 0, debugAdvertiseAttributions}) {
+    new CommonMethods(this.nativeDeepWall).updateUserProperties({
       country,
       language,
       environmentStyle,
       debugAdvertiseAttributions,
-    );
+    });
 
     return this;
   }
 
-  hidePaywallLoadingIndicator() {
-    this.nativeDeepWall.hidePaywallLoadingIndicator();
-  }
-
   requestPaywall(actionKey, extraData = null) {
-    this.nativeDeepWall.requestPaywall(actionKey, extraData);
+    new CommonMethods(this.nativeDeepWall).requestPaywall(actionKey, extraData);
   }
 
   closePaywall() {
-    this.nativeDeepWall.closePaywall();
+    new CommonMethods(this.nativeDeepWall).closePaywall();
   }
 
   validateReceipt(type) {
-    if (!Object.values(ValidateReceiptTypes).includes(type)) {
-      throw new DeepWallException(ErrorCodes.VALIDATE_RECEIPT_TYPE_NOT_VALID);
-    }
+    new CommonMethods(this.nativeDeepWall).validateReceipt(type);
+  }
 
-    this.nativeDeepWall.validateReceipt(type);
+  // iOS ONLY
+  hidePaywallLoadingIndicator() {
+    new IosMethods(this.nativeDeepWall).hidePaywallLoadingIndicator();
+  }
+
+  // Android ONLY
+  consumeProduct(productId) {
+    new AndroidMethods(this.nativeDeepWall).consumeProduct(productId);
+  }
+
+  // Android ONLY
+  setProductUpgradePolicy(prorationType, upgradePolicy) {
+    new AndroidMethods(this.nativeDeepWall).setProductUpgradePolicy(prorationType, upgradePolicy);
+  }
+
+  // Android ONLY
+  updateProductUpgradePolicy(prorationType, upgradePolicy) {
+    new AndroidMethods(this.nativeDeepWall).updateProductUpgradePolicy(prorationType, upgradePolicy);
   }
 }

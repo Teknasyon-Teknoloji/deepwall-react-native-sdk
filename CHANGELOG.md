@@ -8,17 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Added
 - Added homepage info into `package.json`
 - Added `AppsFlyer` support.
-
-## Changed
-- On iOS `deepwall-core` version upgraded to version `2.1.0`
-- On Android `deepwall-core` version upgraded to version `2.2.0`
-- On Android added new methods 
+- On Android added new methods
   - consumeProduct
   - setProductUpgradePolicy
   - updateProductUpgradePolicy
 - On Android added new events
-  - deepWallPaywallConsumeSuccess 
-  - deepWallPaywallConsumeFailure 
+  - deepWallPaywallConsumeSuccess
+  - deepWallPaywallConsumeFailure
+- General code refactor
+- Added new events
+  - PAYWALL_CONSUME_SUCCESS
+  - PAYWALL_CONSUME_FAIL
+- Exported new enums
+  - ProrationTypes
+  - UpgradePolicies
+- Added new methods
+  - consumeProduct
+  - setProductUpgradePolicy
+  - updateProductUpgradePolicy
+
+## Changed
+- On iOS `deepwall-core` version upgraded to version `2.1.0`
+- On Android `deepwall-core` version upgraded to version `2.2.0`
 
 
 ---
