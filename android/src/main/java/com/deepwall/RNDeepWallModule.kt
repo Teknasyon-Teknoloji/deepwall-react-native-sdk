@@ -83,6 +83,11 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
+  fun consumeProduct(productId: String) {
+    DeepWall.consumeProduct(productId)
+  }
+
+  @ReactMethod
   fun validateReceipt(validationType: Int) {
     val validation = when (validationType) {
       1 -> DeepWallReceiptValidationType.PURCHASE
@@ -92,6 +97,61 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     }
     DeepWall.validateReceipt(validation)
   }
+
+  @ReactMethod
+  fun setProductUpgradePolicy(prorationType: Int, upgradePolicy : Int) {
+    val prorationValidationType = when (prorationType) {
+      0 -> ProrationType.UNKNOWN_SUBSCRIPTION_UPGRADE_DOWNGRADE_POLICY
+      1 -> ProrationType.IMMEDIATE_WITH_TIME_PRORATION
+      2 -> ProrationType.IMMEDIATE_AND_CHARGE_PRORATED_PRICE
+      3 -> ProrationType.IMMEDIATE_WITHOUT_PRORATION
+      4 -> ProrationType.DEFERRED
+      5 -> ProrationType.NONE
+      else -> ProrationType.NONE
+    }
+
+    val upgradePolicyValidation = when (upgradePolicy){
+      0 -> PurchaseUpgradePolicy.DISABLE_ALL_POLICIES
+      1 -> PurchaseUpgradePolicy.ENABLE_ALL_POLICIES
+      2 -> PurchaseUpgradePolicy.ENABLE_ONLY_UPGRADE
+      3 -> PurchaseUpgradePolicy.ENABLE_ONLY_DOWNGRADE
+      else -> PurchaseUpgradePolicy.DISABLE_ALL_POLICIES
+    }
+
+    DeepWall.setProductUpgradePolicy(
+        prorationType = prorationValidationType,
+        upgradePolicy = upgradePolicyValidation
+    )
+
+  }
+
+  @ReactMethod
+  fun updateProductUpgradePolicy(prorationType: Int, upgradePolicy : Int) {
+    val prorationValidationType = when (prorationType) {
+      0 -> ProrationType.UNKNOWN_SUBSCRIPTION_UPGRADE_DOWNGRADE_POLICY
+      1 -> ProrationType.IMMEDIATE_WITH_TIME_PRORATION
+      2 -> ProrationType.IMMEDIATE_AND_CHARGE_PRORATED_PRICE
+      3 -> ProrationType.IMMEDIATE_WITHOUT_PRORATION
+      4 -> ProrationType.DEFERRED
+      5 -> ProrationType.NONE
+      else -> ProrationType.NONE
+    }
+
+    val upgradePolicyValidation = when (upgradePolicy){
+      0 -> PurchaseUpgradePolicy.DISABLE_ALL_POLICIES
+      1 -> PurchaseUpgradePolicy.ENABLE_ALL_POLICIES
+      2 -> PurchaseUpgradePolicy.ENABLE_ONLY_UPGRADE
+      3 -> PurchaseUpgradePolicy.ENABLE_ONLY_DOWNGRADE
+      else -> PurchaseUpgradePolicy.DISABLE_ALL_POLICIES
+    }
+
+    DeepWall.updateProductUpgradePolicy(
+        prorationType = prorationValidationType,
+        upgradePolicy = upgradePolicyValidation
+    )
+  }
+
+
 
   private fun observeDeepWallEvents() {
     EventBus.subscribe(Consumer {
@@ -191,6 +251,20 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
           map.putString("event", "deepWallPaywallResponseReceived")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
         }
+
+        DeepWallEvent.CONSUME_SUCCESS.value -> {
+          map = WritableNativeMap()
+          map.putString("data", "")
+          map.putString("event", "deepWallPaywallConsumeSuccess")
+          deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
+        }
+
+        DeepWallEvent.CONSUME_FAIL.value -> {
+          map = WritableNativeMap()
+          map.putString("data", "")
+          map.putString("event", "deepWallPaywallConsumeFailure")
+          deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
+        }
       }
     })
   }
@@ -204,8 +278,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
       val value = jsonObject[key]
       if (value is JSONObject) {
         map.putMap(key, convertJsonToMap(value))
-      }
-      else if(value is JSONArray){
+      } else if (value is JSONArray) {
         map.putArray(key, convertJsonToArray(value))
       } else if (value is Boolean) {
         map.putBoolean(key, (value))
@@ -260,6 +333,4 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     }
     return array
   }
-
-
 }
