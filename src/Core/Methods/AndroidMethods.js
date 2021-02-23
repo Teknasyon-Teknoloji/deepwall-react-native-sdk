@@ -65,7 +65,7 @@ export default class AndroidMethods {
    * @param prorationType
    */
   validateProrationType(prorationType) {
-    if (!Object.values(ProrationTypes).includes(type)) {
+    if (!Object.values(ProrationTypes).includes(prorationType)) {
       throw new DeepWallException(ErrorCodes.PRORATION_TYPE_NOT_VALID);
     }
   }
@@ -75,7 +75,7 @@ export default class AndroidMethods {
    * @param upgradePolicy
    */
   validateUpgradePolicy(upgradePolicy) {
-    if (!Object.values(UpgradePolicies).includes(type)) {
+    if (!Object.values(UpgradePolicies).includes(upgradePolicy)) {
       throw new DeepWallException(ErrorCodes.UPGRADE_POLICY_TYPE_NOT_VALID);
     }
   }
