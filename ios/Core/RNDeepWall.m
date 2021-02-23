@@ -113,7 +113,7 @@ RCT_EXPORT_METHOD(hidePaywallLoadingIndicator)
 RCT_EXPORT_METHOD(validateReceipt:(int)type)
 {
 	PloutosValidationType validationType = (PloutosValidationType)type;
-	[[PloutosCore shared] validateReceiptForType:validationType];
+	[[DeepWallCore shared] validateReceiptForType:validationType];
 }
 
 
