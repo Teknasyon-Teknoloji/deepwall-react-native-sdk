@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 - On iOS `deepwall-core` version upgraded to version `2.1.0`
+- On Android `deepwall-core` version upgraded to version `2.2.0`
+- On Android added new methods 
+  - consumeProduct
+  - setProductUpgradePolicy
+  - updateProductUpgradePolicy
+- On Android added new events
+  - deepWallPaywallConsumeSuccess 
+  - deepWallPaywallConsumeFailure 
 
 
 ---
