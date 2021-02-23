@@ -6,10 +6,9 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   RNDeepWall
                    DESC
-  s.homepage     = "https://teknasyon.com"
+  s.homepage     = "https://deepwall.com"
   s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "Teknasyon" => "https://teknasyon.com" }
+  s.author       = { "Deepwall" => "https://deepwall.com" }
   s.platform     = :ios, "10.0"
   s.source       = { :git => "https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk.git", :tag => s.version }
   s.source_files  = "**/*.{h,m}"
@@ -19,5 +18,5 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.dependency "React"
-  s.dependency "DeepWall", '~> 2.0'
+  s.dependency "DeepWall", '~> 2.1'
 end
