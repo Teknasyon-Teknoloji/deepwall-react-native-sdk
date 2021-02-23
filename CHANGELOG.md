@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.3.0...master)
 ## Added
 - Added homepage info into `package.json`
+- Added `AppsFlyer` support.
+
+## Changed
+- On iOS `deepwall-core` version upgraded to version `2.1.0`
 
 
 ---
