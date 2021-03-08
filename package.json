@@ -1,6 +1,6 @@
 {
   "name": "deepwall-react-native-sdk",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "DeepWall SDK react native wrapper",
   "homepage": "https://deepwall.com",
   "repository": {
@@ -8,16 +8,13 @@
     "url": "https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk.git"
   },
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "react-native",
     "deepwall",
     "deepwall sdk"
   ],
-  "author": "Teknasyon",
-  "license": "",
+  "author": "DeepWall",
+  "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.56.0"
   }
