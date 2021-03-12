@@ -2,16 +2,19 @@
 All notable changes to this project will be documented in this file.
 
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.1...master)
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.2...master)
 
 
 ---
 
 
+## [2.5.2 (2021-03-12)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.1...2.5.2)
+# Changed
+- On Android `deepwall-core` version upgraded to version `2.2.2`
+
 ## [2.5.1 (2021-02-16)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.0...2.5.1)
 # Changed
 - On Android `deepwall-core` version upgraded to version `2.2.1`
-
 
 ## [2.5.0 (2021-02-16)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.4.0...2.5.0)
 ## Added
