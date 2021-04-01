@@ -2,13 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.2...master)
-## Fixed
-- On iOS "debugAdvertiseAttributions" parameter updated
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.6.0...main)
 
 
 ---
 
+
+## [2.6.0 (2021-04-01)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.2...2.6.0)
+## Fixed
+- On iOS "debugAdvertiseAttributions" parameter updated
 
 ## [2.5.2 (2021-03-12)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.1...2.5.2)
 ## Changed
