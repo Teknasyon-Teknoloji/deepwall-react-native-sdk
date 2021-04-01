@@ -63,7 +63,7 @@ RCT_EXPORT_METHOD(setUserProperties:(NSDictionary *)props)
 	[[DeepWallCore shared] setUserProperties:[dwProps toDWObject]];
 }
 
-RCT_EXPORT_METHOD(updateUserProperties:(NSString *)country language:(NSString *)language environmentStyle:(int)environmentStyle debugAdvertiseAttributions:(NSArray *)debugAdvertiseAttributions)
+RCT_EXPORT_METHOD(updateUserProperties:(NSString *)country language:(NSString *)language environmentStyle:(int)environmentStyle debugAdvertiseAttributions:(NSDictionary *)debugAdvertiseAttributions)
 {
 	NSString *dwCountry = nil;
 	if (country != nil) {
