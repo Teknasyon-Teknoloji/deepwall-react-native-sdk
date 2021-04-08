@@ -35,4 +35,17 @@ export default class IosMethods {
 
     this.nativeDeepWall.requestAppTracking(actionKey, extraData);
   }
+
+  /**
+   * sendExtraDataToPaywall
+   *
+   * @param extraData
+   */
+  sendExtraDataToPaywall(extraData) {
+    if (!this.isIos()) {
+      return;
+    }
+
+    this.nativeDeepWall.sendExtraDataToPaywall(extraData);
+  }
 }

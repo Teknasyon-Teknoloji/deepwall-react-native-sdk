@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - On iOS added new "requestAppTracking" method.
+- On iOS added new "sendExtraDataToPaywall" method for sending extra data to paywalls. 
 
 
 ---

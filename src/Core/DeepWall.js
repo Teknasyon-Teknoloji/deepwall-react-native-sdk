@@ -93,6 +93,11 @@ export default class DeepWall {
     new IosMethods(this.nativeDeepWall).requestAppTracking(actionKey, extraData);
   }
 
+  // iOS ONLY
+  sendExtraDataToPaywall(extraData) {
+    new IosMethods(this.nativeDeepWall).sendExtraDataToPaywall(extraData);
+  }
+
   // Android ONLY
   consumeProduct(productId) {
     new AndroidMethods(this.nativeDeepWall).consumeProduct(productId);
