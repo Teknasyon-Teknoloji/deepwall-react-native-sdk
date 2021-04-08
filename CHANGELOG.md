@@ -3,7 +3,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.6.0...main)
 ### Fixed
-- Changelog refactored
+- Changelog refactored.
+
+### Changed
+- On iOS `deepwall-core` version upgraded to version `~> 2.2`.
+
+### Added
+- On iOS added new "requestAppTracking" method.
+- On iOS added new "sendExtraDataToPaywall" method for sending extra data to paywalls. 
+- Added new event for ios "DeepWallEvents.ATT_STATUS_CHANGED".
 
 
 ---

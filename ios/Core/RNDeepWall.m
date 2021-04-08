@@ -96,7 +96,28 @@ RCT_EXPORT_METHOD(requestPaywall:(NSString *)action extraData:(NSDictionary *)ex
 
 		[[DeepWallCore shared] requestPaywallWithAction:action inView:view extraData:extraData];
 	});
+}
 
+RCT_EXPORT_METHOD(requestAppTracking:(NSString *)action extraData:(NSDictionary *)extraData)
+{
+	if (@available(iOS 14.0, *) == false) {
+		return;
+	}
+
+	dispatch_async(dispatch_get_main_queue(), ^{
+		UIViewController *view = RCTPresentedViewController();
+		if (view == nil) {
+			return;
+		}
+
+		[[DeepWallCore shared] requestAppTrackingWithAction:action inView:view extraData:extraData];
+	});
+}
+
+
+RCT_EXPORT_METHOD(sendExtraDataToPaywall:(NSDictionary *)extraData)
+{
+	[[DeepWallCore shared] sendExtraDataToPaywall:extraData];
 }
 
 

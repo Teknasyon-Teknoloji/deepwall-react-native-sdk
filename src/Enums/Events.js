@@ -17,6 +17,9 @@ export default {
   PAYWALL_RESTORE_SUCCESS: 'deepWallPaywallRestoreSuccess',
   PAYWALL_RESTORE_FAILED: 'deepWallPaywallRestoreFailed',
 
+  // iOS ONLY events
+  ATT_STATUS_CHANGED: 'deepWallATTStatusChanged',
+
   // Android ONLY events
   PAYWALL_CONSUME_SUCCESS: 'deepWallPaywallConsumeSuccess',
   PAYWALL_CONSUME_FAIL: 'deepWallPaywallConsumeFailure',
