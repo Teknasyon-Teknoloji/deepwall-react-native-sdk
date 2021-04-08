@@ -41,7 +41,7 @@ Run `$ react-native link deepwall-react-native-sdk` to link the library.
 ```javascript
 import DeepWall, { DeepWallEnvironments } from 'deepwall-react-native-sdk';
 
-DeepWall.getInstance().initialize('API_KEY', DeepWallEnvironments.PRODUCTION);
+DeepWall.getInstance().initialize('{API_KEY}', DeepWallEnvironments.PRODUCTION);
 ```
 
 - Before requesting any paywall you need to set UserProperties (device uuid, country, language). [See all parameters](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk#configuration)
@@ -58,22 +58,40 @@ DeepWall.getInstance().setUserProperties(
 ```
 
 
-- After setting userProperties, you are ready for requesting paywall with an action name. You can find action name in DeepWall dashboard.
+- After setting userProperties, you are ready for requesting paywall with an action key. You can find action key in DeepWall dashboard.
 ```javascript
+import DeepWall from 'deepwall-react-native-sdk';
+
 DeepWall.getInstance().requestPaywall('AppLaunch');
 
-// You can send extra parameter if needed as below:
-DeepWall.getInstance().requestPaywall('AppLaunch', {'sliderIndex': 2, 'title': 'Deepwall'});
+// You can send extra parameter if needed as below
+DeepWall.getInstance().requestPaywall('{ACTION_KEY}', {'sliderIndex': 2, 'title': 'Deepwall'});
 ```
+
+
+- Requesting ATT Prompts
+```javascript
+import DeepWall from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().requestAppTracking('{ACTION_KEY}');
+
+// You can send extra parameter if needed as below
+DeepWall.getInstance().requestAppTracking('{ACTION_KEY}', {appName: "My awesome app"});
+```
+
 
 - You can also close paywall.
 ```javascript
+import DeepWall from 'deepwall-react-native-sdk';
+
 DeepWall.getInstance().closePaywall();
 ```
 
 
 - If any of userProperties is changed you need to call updateUserProperties method. (For example if user changed application language)
 ```javascript
+import DeepWall from 'deepwall-react-native-sdk';
+
 DeepWall.getInstance().updateUserProperties({
   language: 'fr-fr',
 });

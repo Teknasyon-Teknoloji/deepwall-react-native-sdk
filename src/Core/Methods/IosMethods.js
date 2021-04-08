@@ -21,4 +21,18 @@ export default class IosMethods {
 
     this.nativeDeepWall.hidePaywallLoadingIndicator();
   }
+
+  /**
+   * requestAppTracking
+   *
+   * @param actionKey
+   * @param extraData
+   */
+  requestAppTracking(actionKey, extraData = null) {
+    if (!this.isIos()) {
+      return;
+    }
+
+    this.nativeDeepWall.requestAppTracking(actionKey, extraData);
+  }
 }
