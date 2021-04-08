@@ -1,27 +1,28 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.6.0...main)
+### Fixed
+- Changelog refactored
 
 
 ---
 
 
 ## [2.6.0 (2021-04-01)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.2...2.6.0)
-## Fixed
+### Fixed
 - On iOS "debugAdvertiseAttributions" parameter updated
 
 ## [2.5.2 (2021-03-12)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.1...2.5.2)
-## Changed
+### Changed
 - On Android `deepwall-core` version upgraded to version `2.2.2`
 
 ## [2.5.1 (2021-02-16)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.5.0...2.5.1)
-## Changed
+### Changed
 - On Android `deepwall-core` version upgraded to version `2.2.1`
 
 ## [2.5.0 (2021-02-16)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.4.0...2.5.0)
-## Added
+### Added
 - Added homepage info into `package.json`
 - Added `AppsFlyer` support.
 - On Android added new methods
@@ -43,29 +44,29 @@ All notable changes to this project will be documented in this file.
   - setProductUpgradePolicy
   - updateProductUpgradePolicy
 
-## Changed
+### Changed
 - On iOS `deepwall-core` version upgraded to version `2.1.0`
 - On Android `deepwall-core` version upgraded to version `2.2.0`
 
 ## [2.4.0 (2021-02-16)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.3.0...2.4.0)
-## Added
+### Added
 - Exported DeepWallEnvironmentStyles.
 - Added passing extra data example into readme
 
-## Fixed
+### Fixed
 - Readme file EventBus example typo fixed.
 - Fixed event firing multiple times on hot reload issue [#17](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/pull/17)
 
 ## [2.3.0 (2020-12-23)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.2.0...2.3.0)
-## Changed
+### Changed
 - On iOS added nullability checks for event models.
 - Android deepwall-core module updated to 2.1.6.
 
 ## [2.2.0 (2020-11-19)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.1.0...2.2.0)
-## Changed
+### Changed
 - Android deepwall-core module updated to 2.1.5.
 
-## Fixed
+### Fixed
 - Android wrong event data model fixed.
 
 ## [2.1.0 (2020-11-11)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.0.1...2.1.0)
@@ -77,10 +78,10 @@ All notable changes to this project will be documented in this file.
 - iOS swift file requirement for project is no longer needed.
 - Android deepwall-core module updated to 2.1.1.
 
-## Removed
+### Removed
 - Unnecessary gradle files removed.
 
-## Fixed
+### Fixed
 - Fixed android event data models json cast.
 
 ## [2.0.1 (2020-10-28)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.0.0...2.0.1)
@@ -126,7 +127,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Fix android metro bundle not working error.
 
-## Removed
+### Removed
 - Unnecessary dev dependencies removed.
 - Unused root gradle files removed.
 
