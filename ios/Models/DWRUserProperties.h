@@ -6,7 +6,6 @@
 //  Copyright © 2020 Facebook. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
 #import <DeepWall/DeepWall.h>
 
 NS_ASSUME_NONNULL_BEGIN
