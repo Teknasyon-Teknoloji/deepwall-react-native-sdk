@@ -1,10 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.0...main)
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.1...main)
 
 
 ---
+
+
+## [2.7.1 (2021-04-09)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.0...2.7.1)
+### Fixed
+- On iOS "ATT_STATUS_CHANGED" event not firing error fixed.
 
 
 ## [2.7.0 (2021-04-08)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.6.0...2.7.0)
