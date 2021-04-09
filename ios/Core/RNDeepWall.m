@@ -229,6 +229,9 @@ RCT_EXPORT_METHOD(validateReceipt:(int)type)
 	[[RNDeepWallEmitterSingleton sharedManager] sendEventWithName:@"deepWallPaywallRestoreFailed" dataEncoded:data];
 }
 
+- (void)deepWallATTStatusChanged {
+	[[RNDeepWallEmitterSingleton sharedManager] sendEventWithName:@"deepWallATTStatusChanged" dataEncoded:@{}];
+}
 
 @end
 
