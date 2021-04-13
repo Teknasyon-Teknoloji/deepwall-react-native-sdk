@@ -1,5 +1,4 @@
-
-# DeepWall (deepwall-react-native-sdk)
+# DeepWall (react native sdk)
 
 * This package gives' wrapper methods for deepwall sdks. [iOS](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk) - [Android](https://github.com/Teknasyon-Teknoloji/deepwall-android-sdk)
 
@@ -146,7 +145,7 @@ DeepWall.getInstance().requestAppTracking('{ACTION_KEY}');
 DeepWall.getInstance().requestAppTracking('{ACTION_KEY}', {appName: "My awesome app"});
 ```
 
-- Sending extra data to paywall.
+- Sending extra data to paywall while it's open.
 ```javascript
 import DeepWall from 'deepwall-react-native-sdk';
 
