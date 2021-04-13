@@ -1,7 +1,7 @@
 
 # DeepWall (deepwall-react-native-sdk)
 
-* This package gives wrapper methods for deepwall sdks. [iOS](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk) - [Android](https://github.com/Teknasyon-Teknoloji/deepwall-android-sdk)
+* This package gives' wrapper methods for deepwall sdks. [iOS](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk) - [Android](https://github.com/Teknasyon-Teknoloji/deepwall-android-sdk)
 
 * Before implementing this package, you need to have **api_key** and list of **actions**.
 
@@ -9,6 +9,7 @@
 
 
 ---
+
 
 ## Getting started
 
@@ -37,6 +38,7 @@ Run `$ react-native link deepwall-react-native-sdk` to link the library.
 ## Usage
 
 ### Let's start
+
 - On application start you need to initialize sdk with api key and environment.
 ```javascript
 import DeepWall, { DeepWallEnvironments } from 'deepwall-react-native-sdk';
@@ -57,28 +59,15 @@ DeepWall.getInstance().setUserProperties(
 );
 ```
 
-
 - After setting userProperties, you are ready for requesting paywall with an action key. You can find action key in DeepWall dashboard.
 ```javascript
 import DeepWall from 'deepwall-react-native-sdk';
 
-DeepWall.getInstance().requestPaywall('AppLaunch');
+DeepWall.getInstance().requestPaywall('{ACTION_KEY}');
 
 // You can send extra parameter if needed as below
 DeepWall.getInstance().requestPaywall('{ACTION_KEY}', {'sliderIndex': 2, 'title': 'Deepwall'});
 ```
-
-
-- Requesting ATT Prompts
-```javascript
-import DeepWall from 'deepwall-react-native-sdk';
-
-DeepWall.getInstance().requestAppTracking('{ACTION_KEY}');
-
-// You can send extra parameter if needed as below
-DeepWall.getInstance().requestAppTracking('{ACTION_KEY}', {appName: "My awesome app"});
-```
-
 
 - You can also close paywall.
 ```javascript
@@ -87,8 +76,7 @@ import DeepWall from 'deepwall-react-native-sdk';
 DeepWall.getInstance().closePaywall();
 ```
 
-
-- If any of userProperties is changed you need to call updateUserProperties method. (For example if user changed application language)
+- When any of userProperties is changed, you need to call updateUserProperties method. (For example if user changed application language)
 ```javascript
 import DeepWall from 'deepwall-react-native-sdk';
 
@@ -96,6 +84,16 @@ DeepWall.getInstance().updateUserProperties({
   language: 'fr-fr',
 });
 ```
+
+- You can validate receipts like below.
+```javascript
+import DeepWall, { DeepWallValidateReceiptTypes } from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().validateReceipt(DeepWallValidateReceiptTypes.RESTORE);
+```
+
+
+### Events
 
 - There is also bunch of events triggering before and after DeepWall Actions. You may listen any event like below.
 ```javascript
@@ -136,11 +134,61 @@ componentWillUnmount() {
 ```
 
 
+### iOS Only Methods
+
+- Requesting ATT Prompts
+```javascript
+import DeepWall from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().requestAppTracking('{ACTION_KEY}');
+
+// You can send extra parameter if needed as below
+DeepWall.getInstance().requestAppTracking('{ACTION_KEY}', {appName: "My awesome app"});
+```
+
+- Sending extra data to paywall.
+```javascript
+import DeepWall from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().sendExtraDataToPaywall({appName: "My awesome app"});
+```
+
+
+### Android Only Methods
+
+- For consumable products, you need to mark the purchase as consumed for consumable product to be purchased again.
+```javascript
+import DeepWall from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().consumeProduct('consumable_product_id');
+```
+
+- Use `setProductUpgradePolicy` method to set the product upgrade policy for Google Play apps.
+```javascript
+import DeepWall, { DeepWallProrationTypes, DeepWallUpgradePolicies } from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().setProductUpgradePolicy(
+  DeepWallProrationTypes.IMMEDIATE_WITHOUT_PRORATION,
+  DeepWallUpgradePolicies.ENABLE_ALL_POLICIES
+);
+```
+  
+- Use `updateProductUpgradePolicy` method to update the product upgrade policy within the app workflow before requesting paywalls.
+```javascript
+import DeepWall, { DeepWallProrationTypes, DeepWallUpgradePolicies } from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().updateProductUpgradePolicy(
+  DeepWallProrationTypes.IMMEDIATE_WITHOUT_PRORATION,
+  DeepWallUpgradePolicies.ENABLE_ALL_POLICIES
+);
+```
+
+
 ---
 
 
 ## Notes
-- You may found complete list of _events_ in [Enums/Events.js](./src/Enums/Events.js) or [Native Sdk Page](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk#event-handling)
+- You may find complete list of _events_ in [Enums/Events.js](./src/Enums/Events.js) or [Native Sdk Page](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk#event-handling)
 - **UserProperties** are:
     - uuid
     - country

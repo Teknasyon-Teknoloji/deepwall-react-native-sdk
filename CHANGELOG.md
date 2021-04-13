@@ -2,7 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.1...main)
-
+### Added
+- Added missing examples to [readme](README.md) file.
 
 ---
 
