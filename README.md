@@ -136,8 +136,12 @@ componentWillUnmount() {
 ### iOS Only Methods
 
 - Requesting ATT Prompts
+
 ```javascript
 import DeepWall from 'deepwall-react-native-sdk';
+
+// Before calling the method, make sure that your iOS app's Info.plist contains an entry for NSUserTrackingUsageDescription key.
+//In absence of that key and usage of this method, app will crash.
 
 DeepWall.getInstance().requestAppTracking('{ACTION_KEY}');
 
