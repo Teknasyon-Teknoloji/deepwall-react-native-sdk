@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added missing examples to [readme](README.md) file.
 
+### Changed
+- package-lock.json file deleted.
+
 ---
 
 
