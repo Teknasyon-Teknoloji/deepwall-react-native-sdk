@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - package-lock.json file deleted.
 - On iOS `deepwall-core` version upgraded to version `2.2.1`.
+- On Android `deepwall-core` version upgraded to version `2.3.0`.
+- On Android `compileSdkVersion` and `targetSdkVersion` set to 30.
 
 ---
 

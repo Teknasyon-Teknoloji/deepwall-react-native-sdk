@@ -12,8 +12,7 @@ import manager.eventbus.EventBus
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
-
-
+import java.lang.reflect.Field
 open class RNDeepWallModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
   override fun getName(): String {
     return "RNDeepWall"
@@ -146,7 +145,10 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     )
   }
 
-
+  @ReactMethod
+  fun setFontFields(fields: Array<Field>) {
+    DeepWall.setFontFields(fields)
+  }
 
   private fun observeDeepWallEvents() {
     EventBus.subscribe(Consumer {
