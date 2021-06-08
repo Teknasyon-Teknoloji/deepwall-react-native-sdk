@@ -145,11 +145,6 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     )
   }
 
-  @ReactMethod
-  fun setFontFields(fields: Array<Field>) {
-    DeepWall.setFontFields(fields)
-  }
-
   private fun observeDeepWallEvents() {
     EventBus.subscribe(Consumer {
 
