@@ -1,7 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.1...main)
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.8.0...main)
+
+
+---
+
+
+## [2.8.0 (2021-06-09)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.1...2.8.0)
 ### Added
 - Added missing examples to [readme](README.md) file.
 
@@ -12,18 +18,13 @@ All notable changes to this project will be documented in this file.
 - On Android, `deepwall-core` version upgraded to version `2.3.0`.
 - On Android, `compileSdkVersion` and `targetSdkVersion` set to 30.
 - On Android, kotlin_version updated to `1.4.32`.
-- Example file updated. 
+- Example file updated.
 - Readme updated.
 - On Android "Make sure your min gradle version is `3.6.4`" (see readme file "Troubleshooting" section for more information).
-
-
----
-
 
 ## [2.7.1 (2021-04-09)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.0...2.7.1)
 ### Fixed
 - On iOS "ATT_STATUS_CHANGED" event not firing error fixed.
-
 
 ## [2.7.0 (2021-04-08)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.6.0...2.7.0)
 ### Fixed
