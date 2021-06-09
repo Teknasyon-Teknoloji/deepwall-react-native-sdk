@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.8.0...main)
+### Changed
+- Readme updated.
 
 
 ---
@@ -17,10 +19,10 @@ All notable changes to this project will be documented in this file.
 - On iOS, you can remove `use_frameworks!` from podfile.
 - On Android, `deepwall-core` version upgraded to version `2.3.0`.
 - On Android, `compileSdkVersion` and `targetSdkVersion` set to 30.
-- On Android, kotlin_version updated to `1.4.32`.
+- On Android, kotlin version updated to `1.4.32`.
 - Example file updated.
 - Readme updated.
-- On Android "Make sure your min gradle version is `3.6.4`" (see readme file "Troubleshooting" section for more information).
+- On Android Make sure your gradle version is `3.6.4` or higher (see readme file "Troubleshooting" section for more information).
 
 ## [2.7.1 (2021-04-09)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.0...2.7.1)
 ### Fixed

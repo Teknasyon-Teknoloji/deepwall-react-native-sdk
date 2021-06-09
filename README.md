@@ -201,8 +201,8 @@ DeepWall.getInstance().updateProductUpgradePolicy(
 ## Troubleshooting
 
 ### Android
-- If you get "unexpected element <queries> found in <manifest>" error
-  - Set min gradle version to "3.6..4" in `android/build.gradle` file. See example below:
+- If you get "unexpected element `<queries>` found in `<manifest>`" error
+  - Set min gradle version to "3.6.4" in `android/build.gradle` file. See example below:
     - `classpath("com.android.tools.build:gradle:3.6.4")`
 
 - If you get NATIVE_MODULE_NOT_FOUND error, that means you have to link this library manually.
