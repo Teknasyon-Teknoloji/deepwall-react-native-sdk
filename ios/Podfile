@@ -1,7 +1,5 @@
 platform :ios, '10.0'
 
 target 'RNDeepWall' do
-  use_frameworks!
-
-  pod 'DeepWall', '~> 2.0'
+  pod 'DeepWall', '2.3.0'
 end

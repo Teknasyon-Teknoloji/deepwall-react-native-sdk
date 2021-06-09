@@ -21,15 +21,14 @@ Run `$ react-native link deepwall-react-native-sdk` to link the library.
 
 ### Installation Notes
 - **IOS**
-  - Set minimum ios version to 10.0 in `ios/Podfile` like: `platform :ios, '10.0'`
-  - Add `use_frameworks!` into `ios/Podfile` if not exists.
+  - Set ios version to 10.0 or higher in `ios/Podfile` like: `platform :ios, '10.0'`
   - Remove `flipper` from `ios/Podfile` if exists.
   - Run `$ cd ios && pod install`
 
 - **ANDROID**
-  - Set `minSdkVersion` to  21 in `android/build.gradle`
+  - Set `minSdkVersion` to 21 or higher in `android/build.gradle`
   - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
-  - Make sure your min gradle version is "3.6.4" in `android/build.gradle`. (Check troubleshooting section to see example)
+  - Make sure your min gradle version is "3.6.4" or higher in `android/build.gradle`. (Check troubleshooting section to see example)
 
 
 ---

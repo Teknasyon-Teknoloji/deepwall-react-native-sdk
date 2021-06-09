@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.dependency "React"
-  s.dependency "DeepWall", '2.2.1'
+  s.dependency "DeepWall", '2.3.0'
 end
