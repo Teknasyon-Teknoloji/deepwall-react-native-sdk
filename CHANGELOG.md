@@ -8,6 +8,13 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - package-lock.json file deleted.
 - On iOS `deepwall-core` version upgraded to version `2.2.1`.
+- On Android `deepwall-core` version upgraded to version `2.3.0`.
+- On Android `compileSdkVersion` and `targetSdkVersion` set to 30.
+- On Android kotlin_version updated to `1.4.32`.
+- Example file updated. 
+- Readme updated.
+- On Android "Make sure your min gradle version is `3.6.4`" (see readme file "Troubleshooting" section for more information).
+
 
 ---
 

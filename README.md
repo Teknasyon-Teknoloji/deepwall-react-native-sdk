@@ -29,6 +29,7 @@ Run `$ react-native link deepwall-react-native-sdk` to link the library.
 - **ANDROID**
   - Set `minSdkVersion` to  21 in `android/build.gradle`
   - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
+  - Make sure your min gradle version is "3.6.4" in `android/build.gradle`. (Check troubleshooting section to see example)
 
 
 ---
@@ -201,6 +202,10 @@ DeepWall.getInstance().updateProductUpgradePolicy(
 ## Troubleshooting
 
 ### Android
+- If you get "unexpected element <queries> found in <manifest>" error
+  - Set min gradle version to "3.6..4" in `android/build.gradle` file. See example below:
+    - `classpath("com.android.tools.build:gradle:3.6.4")`
+
 - If you get NATIVE_MODULE_NOT_FOUND error, that means you have to link this library manually.
   - Add new instance of Deepwall package into `src/main/java/com/YOUR-APP-NAME/MainApplication.java`
 ```java

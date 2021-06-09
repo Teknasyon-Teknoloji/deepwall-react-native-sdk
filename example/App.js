@@ -8,6 +8,7 @@ import DeepWall, {
 } from 'deepwall-react-native-sdk';
 
 const API_KEY = 'XXXX'; // Api key from deepwall console
+const ACTION_KEY = 'AppLaunch'; // Api key from deepwall console
 
 export default class App extends React.Component {
   deepwallListeners = [];
@@ -21,7 +22,7 @@ export default class App extends React.Component {
   componentDidMount() {
     DeepWall.getInstance().setUserProperties(
       new DeepWallUserProperties({
-        uuid: 'deepwall-test-device',
+        uuid: 'deepwall-test-device-001',
         country: 'en',
         language: 'en-en',
       }),
@@ -44,14 +45,25 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <View style={{width: 200}}>
+      <View style={Styles.wrapper}>
+        <View style={Styles.buttonWrapper}>
           <Button
             title={'OPEN PAGE'}
-            onPress={() => DeepWall.getInstance().requestPaywall('AppLaunch')}
+            onPress={() => DeepWall.getInstance().requestPaywall(ACTION_KEY)}
           />
         </View>
       </View>
     );
   }
 }
+
+const Styles = {
+  wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonWrapper: {
+    width: 200,
+  }
+};
