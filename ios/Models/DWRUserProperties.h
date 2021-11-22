@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *language;
 @property (nonatomic) NSNumber<Optional> *environmentStyle;
 @property (nonatomic) NSArray<NSString *><Optional> *debugAdvertiseAttributions;
+@property (nonatomic) NSString *phoneNumber;
+@property (nonatomic) NSString *emailAddress;
+@property (nonatomic) NSString *firstName;
+@property (nonatomic) NSString *lastName;
 
 - (DeepWallUserProperties *)toDWObject;
 

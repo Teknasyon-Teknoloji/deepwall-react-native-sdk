@@ -8,10 +8,10 @@ export default class UserProperties {
     language,
     environmentStyle = 0,
     debugAdvertiseAttributions = null,
-    phoneNumber = '',
-    email = '',
-    firstName = '',
-    lastName = '',
+    phoneNumber = null,
+    emailAddress= null,
+    firstName = null,
+    lastName =null,
   }) {
     this.uuid = uuid;
     this.country = country;
@@ -19,7 +19,7 @@ export default class UserProperties {
     this.environmentStyle = environmentStyle;
     this.debugAdvertiseAttributions = debugAdvertiseAttributions;
     this.phoneNumber = phoneNumber;
-    this.email = email;
+    this.emailAddress = emailAddress;
     this.firstName = firstName;
     this.lastName = lastName;
   }
@@ -36,7 +36,7 @@ export default class UserProperties {
       environmentStyle: this.environmentStyle,
       debugAdvertiseAttributions: this.debugAdvertiseAttributions,
       phoneNumber: this.phoneNumber,
-      email: this.email,
+      emailAddress: this.emailAddress,
       firstName: this.firstName,
       lastName: this.lastName,
     };

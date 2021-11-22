@@ -63,7 +63,7 @@ RCT_EXPORT_METHOD(setUserProperties:(NSDictionary *)props)
 	[[DeepWallCore shared] setUserProperties:[dwProps toDWObject]];
 }
 
-RCT_EXPORT_METHOD(updateUserProperties:(NSString *)country language:(NSString *)language environmentStyle:(int)environmentStyle debugAdvertiseAttributions:(NSDictionary *)debugAdvertiseAttributions)
+RCT_EXPORT_METHOD(updateUserProperties:(NSString *)country language:(NSString *)language environmentStyle:(int)environmentStyle phoneNumber:(NSString *)phoneNumber emailAddress:(NSString *)emailAddress firstName:(NSString *)firstName lastName:(NSString *)lastName debugAdvertiseAttributions:(NSDictionary *)debugAdvertiseAttributions)
 {
 	NSString *dwCountry = nil;
 	if (country != nil) {
@@ -81,8 +81,20 @@ RCT_EXPORT_METHOD(updateUserProperties:(NSString *)country language:(NSString *)
 	} else {
 		dwEnvironmentStyle = [[DeepWallCore shared] userProperties].environmentStyle;
 	}
-
-	[[DeepWallCore shared] updateUserPropertiesCountry:dwCountry language:dwLanguage environmentStyle:dwEnvironmentStyle debugAdvertiseAttributions:debugAdvertiseAttributions];
+    
+    [[DeepWallCore shared] updateUserPropertiesCountry:dwCountry language:dwLanguage environmentStyle:dwEnvironmentStyle phoneNumber:phoneNumber debugAdvertiseAttributions:debugAdvertiseAttributions];
+    
+    if (emailAddress != nil) {
+        [[DeepWallCore shared] userProperties].emailAddress = emailAddress;
+    }
+    
+    if (firstName != nil) {
+        [[DeepWallCore shared] userProperties].firstName = firstName;
+    }
+    
+    if (lastName != nil) {
+        [[DeepWallCore shared] userProperties].lastName = lastName;
+    }
 }
 
 

@@ -48,14 +48,14 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     val country = userProperties.getString("country")
     val language = userProperties.getString("language")
     val phoneNumber = userProperties.getString("phoneNumber")
-    val email = userProperties.getString("email")
+    val emailAddress = userProperties.getString("emailAddress")
     val firstName = userProperties.getString("firstName")
     val lastName = userProperties.getString("lastName")
     val environmentStyle = userProperties.getInt("environmentStyle")
 
     val theme: DeepWallEnvironmentStyle = if (environmentStyle == 0) DeepWallEnvironmentStyle.LIGHT else DeepWallEnvironmentStyle.DARK
 
-    setUserProperties(uuid!!, country!!, language!!, phoneNumber!!, email!!, firstName!!, lastName!!, theme!!)
+    setUserProperties(uuid!!, country!!, language!!, phoneNumber!!, emailAddress!!, firstName!!, lastName!!, theme!!)
   }
 
   @ReactMethod
@@ -73,14 +73,14 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   fun updateUserProperties(country: String,
                            language: String,
                            environmentStyle: Int = 0,
-                           debugAdvertiseAttributions: String?,
-                           phoneNumber: String = ""
-                           email: String = ""
-                           firstName: String = ""
-                           lastName: String = "") {
+                           phoneNumber: String = "",
+                           emailAddress: String = "",
+                           firstName: String = "",
+                           lastName: String = "",
+                           debugAdvertiseAttributions: String?) {
 
     val theme: DeepWallEnvironmentStyle = if (environmentStyle == 0) DeepWallEnvironmentStyle.LIGHT else DeepWallEnvironmentStyle.DARK
-    DeepWall.updateUserProperties(country, language, theme, phoneNumber, email, firstName, lastName)
+    DeepWall.updateUserProperties(country, language, theme, phoneNumber, emailAddress, firstName, lastName)
   }
 
   @ReactMethod
