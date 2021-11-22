@@ -53,9 +53,19 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     val lastName = userProperties.getString("lastName")
     val environmentStyle = userProperties.getInt("environmentStyle")
 
-    val theme: DeepWallEnvironmentStyle = if (environmentStyle == 0) DeepWallEnvironmentStyle.LIGHT else DeepWallEnvironmentStyle.DARK
+    val theme: DeepWallEnvironmentStyle =
+      if (environmentStyle == 0) DeepWallEnvironmentStyle.LIGHT else DeepWallEnvironmentStyle.DARK
 
-    setUserProperties(uuid!!, country!!, language!!, phoneNumber!!, emailAddress!!, firstName!!, lastName!!, theme!!)
+    setUserProperties(
+      deviceId = uuid ?: "",
+      countryCode = country ?: "",
+      languageCode = language ?: "",
+      phoneNumber = phoneNumber ?: "",
+      email = emailAddress ?: "",
+      firstName = firstName ?: "",
+      lastName = lastName ?: "",
+      environmentStyle = theme
+    )
   }
 
   @ReactMethod
@@ -70,17 +80,27 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun updateUserProperties(country: String,
-                           language: String,
-                           environmentStyle: Int = 0,
-                           phoneNumber: String = "",
-                           emailAddress: String = "",
-                           firstName: String = "",
-                           lastName: String = "",
-                           debugAdvertiseAttributions: String?) {
-
-    val theme: DeepWallEnvironmentStyle = if (environmentStyle == 0) DeepWallEnvironmentStyle.LIGHT else DeepWallEnvironmentStyle.DARK
-    DeepWall.updateUserProperties(country, language, theme, phoneNumber, emailAddress, firstName, lastName)
+  fun updateUserProperties(
+    country: String,
+    language: String,
+    environmentStyle: Int = 0,
+    phoneNumber: String? = "",
+    emailAddress: String? = "",
+    firstName: String? = "",
+    lastName: String? = "",
+    debugAdvertiseAttributions: String?
+  ) {
+    val theme: DeepWallEnvironmentStyle =
+      if (environmentStyle == 0) DeepWallEnvironmentStyle.LIGHT else DeepWallEnvironmentStyle.DARK
+    DeepWall.updateUserProperties(
+      country,
+      language,
+      theme,
+      phoneNumber ?: "",
+      emailAddress ?: "",
+      firstName ?: "",
+      lastName ?: ""
+    )
   }
 
   @ReactMethod
