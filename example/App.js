@@ -8,7 +8,7 @@ import DeepWall, {
 } from 'deepwall-react-native-sdk';
 
 const API_KEY = 'XXXX'; // Api key from deepwall console
-const ACTION_KEY = 'AppLaunch'; // Api key from deepwall console
+const ACTION_KEY = 'XXXX'; // Action key from deepwall console
 
 export default class App extends React.Component {
   deepwallListeners = [];
@@ -48,7 +48,7 @@ export default class App extends React.Component {
       <View style={Styles.wrapper}>
         <View style={Styles.buttonWrapper}>
           <Button
-            title={'OPEN PAGE'}
+            title={'Open Paywall for: ' + ACTION_KEY}
             onPress={() => DeepWall.getInstance().requestPaywall(ACTION_KEY)}
           />
         </View>

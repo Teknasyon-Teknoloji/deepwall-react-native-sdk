@@ -21,7 +21,11 @@
 		dwEnvironmentStyle = DeepWallEnvironmentStyleAutomatic;
 	}
 	
-	return [[DeepWallUserProperties alloc] initWithUuid:self.uuid country:dwCountry language:dwLanguage environmentStyle:dwEnvironmentStyle debugAdvertiseAttributions:self.debugAdvertiseAttributions];
+    DeepWallUserProperties *dwUserProperties = [[DeepWallUserProperties alloc] initWithUuid:self.uuid country:dwCountry language:dwLanguage environmentStyle:dwEnvironmentStyle phoneNumber:self.phoneNumber debugAdvertiseAttributions:self.debugAdvertiseAttributions];
+    dwUserProperties.emailAddress = self.emailAddress;
+    dwUserProperties.firstName = self.firstName;
+    dwUserProperties.lastName = self.lastName;
+    return dwUserProperties;
 }
 
 @end

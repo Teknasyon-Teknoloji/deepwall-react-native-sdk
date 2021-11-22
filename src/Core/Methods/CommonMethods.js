@@ -41,13 +41,32 @@ export default class CommonMethods {
    * @param country
    * @param language
    * @param environmentStyle
+   * @param phoneNumber
+   * @param emailAddress
+   * @param firstName
+   * @param lastName
    * @param debugAdvertiseAttributions
    */
-  updateUserProperties({country, language, environmentStyle, debugAdvertiseAttributions}) {
+  updateUserProperties(
+    {
+      country,
+      language,
+      environmentStyle,
+      phoneNumber,
+      emailAddress,
+      firstName,
+      lastName,
+      debugAdvertiseAttributions,
+    }
+  ) {
     this.nativeDeepWall.updateUserProperties(
       country,
       language,
       environmentStyle,
+      phoneNumber,
+      emailAddress,
+      firstName,
+      lastName,
       debugAdvertiseAttributions,
     );
   }
