@@ -1,16 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.0...main)
-### Fixed
-- On iOS "UserProperties" object fields mandatory error.
-
-### Changed
-- Readme updated.
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.1...main)
 
 
 ---
 
+
+## [2.9.1 (2021-11-25)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.0...2.9.1)
+### Fixed
+- On iOS "UserProperties" object fields mandatory error.
+
+### Added
+- Added missing examples to [readme](README.md) file.
+
+### Changed
+- Readme updated.
 
 ## [2.9.0 (2021-11-22)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.8.0...2.9.0)
 ### Changed
@@ -18,7 +23,6 @@ All notable changes to this project will be documented in this file.
 - On iOS, `deepwall-core` version upgraded to version `2.4.0`.
 - On Android, `deepwall-core` version upgraded to version `2.4.0`.
 - Example file updated.
-
 
 ## [2.8.0 (2021-06-09)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.7.1...2.8.0)
 ### Added
