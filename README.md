@@ -47,13 +47,19 @@ DeepWall.getInstance().initialize('{API_KEY}', DeepWallEnvironments.PRODUCTION);
 
 - Before requesting any paywall you need to set UserProperties (device uuid, country, language). [See all parameters](https://github.com/Teknasyon-Teknoloji/deepwall-ios-sdk#configuration)
 ```javascript
-import DeepWall, { DeepWallUserProperties } from 'deepwall-react-native-sdk';
+import DeepWall, { DeepWallUserProperties, DeepWallEnvironmentStyles } from 'deepwall-react-native-sdk';
 
 DeepWall.getInstance().setUserProperties(
   new DeepWallUserProperties({
-    uuid: 'UNIQUE_DEVICE_ID_HERE (UUID)',
+    uuid: 'UNIQUE_DEVICE_ID_HERE (UID)',
     country: 'us',
     language: 'en-us',
+    environmentStyle: DeepWallEnvironmentStyles.DARK, // Optional
+    debugAdvertiseAttributions: null, // Optional
+    phoneNumber: null, // Optional
+    emailAddress: null, // Optional
+    firstName: null, // Optional
+    lastName: null, // Optional
   }),
 );
 ```

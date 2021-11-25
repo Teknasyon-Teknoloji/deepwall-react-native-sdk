@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.0...main)
+### Fixed
+- On iOS "UserProperties" object fields mandatory error.
+
+### Changed
+- Readme updated.
 
 
 ---
