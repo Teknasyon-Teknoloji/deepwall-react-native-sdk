@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.1...main)
+### Changed
+- On iOS, `deepwall-core` version upgraded to version `2.4.1`.
+- On Android, `deepwall-core` version upgraded to version `2.4.1`.
 
 
 ---
