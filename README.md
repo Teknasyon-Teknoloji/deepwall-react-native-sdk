@@ -28,7 +28,9 @@ Run `$ react-native link deepwall-react-native-sdk` to link the library.
 - **ANDROID**
   - Set `minSdkVersion` to 21 or higher in `android/build.gradle`
   - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
+  - If your projects react native version is higher then 0.65.0 then you should add `jcenter()` into `android/build.gradle` (Add into repositories under allprojects)
   - Make sure your min gradle version is "3.6.4" or higher in `android/build.gradle`. (Check troubleshooting section to see example)
+  
 
 
 ---

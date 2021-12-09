@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - On iOS, `deepwall-core` version upgraded to version `2.4.1`.
 - On Android, `deepwall-core` version upgraded to version `2.4.1`.
+- Readme updated.
 
 
 ---
