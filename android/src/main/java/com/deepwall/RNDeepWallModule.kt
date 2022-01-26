@@ -8,12 +8,15 @@ import deepwall.core.DeepWall.initDeepWallWith
 import deepwall.core.DeepWall.setUserProperties
 import deepwall.core.models.*
 import io.reactivex.functions.Consumer
+import kotlinx.coroutines.*
 import manager.eventbus.EventBus
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.lang.reflect.Field
-open class RNDeepWallModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+
+open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
+  ReactContextBaseJavaModule(reactContext) {
   override fun getName(): String {
     return "RNDeepWall"
   }
@@ -38,8 +41,43 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     isDeepWallInitialized = true
 
     observeDeepWallEvents()
-    val deepWallEnvironment = if (environment == 1) DeepWallEnvironment.SANDBOX else DeepWallEnvironment.PRODUCTION
-    initDeepWallWith(currentActivity!!.application, this.currentActivity!!, apiKey!!, deepWallEnvironment)
+
+    val deepWallEnvironment =
+      if (environment == 1) DeepWallEnvironment.SANDBOX else DeepWallEnvironment.PRODUCTION
+
+    CoroutineScope(Dispatchers.IO).launch {
+
+      if (reactContext.hasCurrentActivity()) {
+        initDeepWallWith(
+          currentActivity!!.application,
+          currentActivity!!,
+          apiKey!!,
+          deepWallEnvironment
+        )
+      }
+      else{
+        withTimeoutOrNull(10000L) {
+          while (!reactContext.hasCurrentActivity()) {
+            delay(250)
+          }
+        }
+
+        if(reactContext.hasCurrentActivity()) {
+          initDeepWallWith(
+            currentActivity!!.application,
+            currentActivity!!,
+            apiKey!!,
+            deepWallEnvironment
+          )
+        } else {
+          val map = WritableNativeMap()
+          val modelData = convertJsonToMap(convertJson(""))
+          map.putMap("data", modelData)
+          map.putString("event", "deepWallInitFailure")
+          deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
+        }
+      }
+    }
   }
 
   @ReactMethod
@@ -125,7 +163,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun setProductUpgradePolicy(prorationType: Int, upgradePolicy : Int) {
+  fun setProductUpgradePolicy(prorationType: Int, upgradePolicy: Int) {
     val prorationValidationType = when (prorationType) {
       0 -> ProrationType.UNKNOWN_SUBSCRIPTION_UPGRADE_DOWNGRADE_POLICY
       1 -> ProrationType.IMMEDIATE_WITH_TIME_PRORATION
@@ -136,7 +174,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
       else -> ProrationType.NONE
     }
 
-    val upgradePolicyValidation = when (upgradePolicy){
+    val upgradePolicyValidation = when (upgradePolicy) {
       0 -> PurchaseUpgradePolicy.DISABLE_ALL_POLICIES
       1 -> PurchaseUpgradePolicy.ENABLE_ALL_POLICIES
       2 -> PurchaseUpgradePolicy.ENABLE_ONLY_UPGRADE
@@ -145,14 +183,14 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     }
 
     DeepWall.setProductUpgradePolicy(
-        prorationType = prorationValidationType,
-        upgradePolicy = upgradePolicyValidation
+      prorationType = prorationValidationType,
+      upgradePolicy = upgradePolicyValidation
     )
 
   }
 
   @ReactMethod
-  fun updateProductUpgradePolicy(prorationType: Int, upgradePolicy : Int) {
+  fun updateProductUpgradePolicy(prorationType: Int, upgradePolicy: Int) {
     val prorationValidationType = when (prorationType) {
       0 -> ProrationType.UNKNOWN_SUBSCRIPTION_UPGRADE_DOWNGRADE_POLICY
       1 -> ProrationType.IMMEDIATE_WITH_TIME_PRORATION
@@ -163,7 +201,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
       else -> ProrationType.NONE
     }
 
-    val upgradePolicyValidation = when (upgradePolicy){
+    val upgradePolicyValidation = when (upgradePolicy) {
       0 -> PurchaseUpgradePolicy.DISABLE_ALL_POLICIES
       1 -> PurchaseUpgradePolicy.ENABLE_ALL_POLICIES
       2 -> PurchaseUpgradePolicy.ENABLE_ONLY_UPGRADE
@@ -172,8 +210,8 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
     }
 
     DeepWall.updateProductUpgradePolicy(
-        prorationType = prorationValidationType,
-        upgradePolicy = upgradePolicyValidation
+      prorationType = prorationValidationType,
+      upgradePolicy = upgradePolicyValidation
     )
   }
 
@@ -256,7 +294,8 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
         }
         DeepWallEvent.EXTRA_DATA.value -> {
           map = WritableNativeMap()
-          val modelData = it.data?.let { it1 -> convertJson(it1) }?.let { it2 -> convertJsonToMap(it2) }
+          val modelData =
+            it.data?.let { it1 -> convertJson(it1) }?.let { it2 -> convertJsonToMap(it2) }
           map.putMap("data", modelData)
           map.putString("event", "deepWallPaywallExtraDataReceived")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
