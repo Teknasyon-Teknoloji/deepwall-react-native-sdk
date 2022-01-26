@@ -1,14 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.2...main)
-### Fixed
-- On android added hasActivity check
-- Added new event for android if deepwall init failure happens
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.3...main)
 
 
 ---
 
+
+## [2.9.3 (2022-01-26)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.2..2.9.3)
+### Fixed
+- On android added hasActivity check
+- Added new event for android if deepwall init failure happens
 
 ## [2.9.2 (2021-12-09)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.1..2.9.2)
 ### Changed
