@@ -104,13 +104,18 @@ DeepWall.getInstance().validateReceipt(DeepWallValidateReceiptTypes.RESTORE);
 
 - There is also bunch of events triggering before and after DeepWall Actions. You may listen any event like below.
 ```javascript
-import DeepWall, { DeepWallEventBus, DeepWallEvents } from 'deepwall-react-native-sdk';
+import DeepWall, { DeepWallEventBus, DeepWallEvents, DeepWallEnvironments } from 'deepwall-react-native-sdk';
 
 DeepWallEventBus.getInstance().addListener(DeepWallEvents.PAYWALL_OPENED, function (data) {
   console.log(
     'DeepWallEvents.PAYWALL_OPENED',
     data
   );
+});
+
+DeepWallEventBus.getInstance().addListener(DeepWallEvents.INIT_FAILURE, function (data) {
+  //init failure you may call init again
+  DeepWall.getInstance().initialize('{API_KEY}', DeepWallEnvironments.PRODUCTION);
 });
 ```
 
