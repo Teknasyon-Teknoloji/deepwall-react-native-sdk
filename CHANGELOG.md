@@ -1,11 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.3...main)
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.4...main)
 
 
 ---
 
+
+## [2.9.4 (2022-01-26)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.3..2.9.4)
+### Fixed
+- On android fixed cannot convert to json error
 
 ## [2.9.3 (2022-01-26)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.2..2.9.3)
 ### Fixed
