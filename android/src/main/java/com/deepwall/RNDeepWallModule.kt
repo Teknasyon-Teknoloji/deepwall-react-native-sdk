@@ -71,7 +71,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
           )
         } else {
           val map = WritableNativeMap()
-          val modelData = convertJsonToMap(convertJson(""))
+          val modelData = convertJsonToMap(convertJsonToMap(JSONObject()))
           map.putMap("data", modelData)
           map.putString("event", "deepWallInitFailure")
           deepWallEmitter.sendEvent(reactContext, "DeepWallEvent", map)
