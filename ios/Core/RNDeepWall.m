@@ -81,24 +81,24 @@ RCT_EXPORT_METHOD(updateUserProperties:(NSString *)country language:(NSString *)
 	} else {
 		dwEnvironmentStyle = [[DeepWallCore shared] userProperties].environmentStyle;
 	}
-    
+
     [[DeepWallCore shared] updateUserPropertiesCountry:dwCountry language:dwLanguage environmentStyle:dwEnvironmentStyle phoneNumber:phoneNumber debugAdvertiseAttributions:debugAdvertiseAttributions];
-    
+
     if (emailAddress != nil) {
         [[DeepWallCore shared] userProperties].emailAddress = emailAddress;
     }
-    
+
     if (firstName != nil) {
         [[DeepWallCore shared] userProperties].firstName = firstName;
     }
-    
+
     if (lastName != nil) {
         [[DeepWallCore shared] userProperties].lastName = lastName;
     }
 }
 
 
-RCT_EXPORT_METHOD(requestPaywall:(NSString *)action extraData:(NSDictionary *)extraData)
+RCT_EXPORT_METHOD(requestPaywall:(NSString *)action extraData:(NSDictionary *)extraData orientation:(NSInteger)orientation)
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
 		UIViewController *view = RCTPresentedViewController();

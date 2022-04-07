@@ -38,6 +38,14 @@ repositories {
 }
 
 dependencies {
-  implementation 'deepwall:deepwall-core:2.4.1'
+  implementation "com.facebook.react:react-native:0.63.3"
+
+  implementation('deepwall:deepwall-core:2.6.1'){
+      exclude group: 'deepwall', module: 'deepwall-video'
+      transitive true
+  }
+  implementation 'deepwall:deepwall-google:2.6.1'
+  implementation('deepwall:deepwall-video:2.13.2.0')
+
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }

@@ -8,6 +8,7 @@ import Events from './Enums/Events';
 import ValidateReceiptTypes from './Enums/ValidateReceiptTypes';
 import ProrationTypes from './Enums/ProrationTypes';
 import UpgradePolicies from './Enums/UpgradePolicies';
+import DeviceOrientations from './Enums/DeviceOrientations';
 
 export {
   DeepWall as default,
@@ -20,4 +21,5 @@ export {
   ValidateReceiptTypes as DeepWallValidateReceiptTypes,
   ProrationTypes as DeepWallProrationTypes,
   UpgradePolicies as DeepWallUpgradePolicies,
+  DeviceOrientations as DeepWallDeviceOrientations,
 };

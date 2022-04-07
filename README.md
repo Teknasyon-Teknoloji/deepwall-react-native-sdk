@@ -27,11 +27,15 @@ Run `$ react-native link deepwall-react-native-sdk` to link the library.
 
 - **ANDROID**
   - Set `minSdkVersion` to 21 or higher in `android/build.gradle`
-  - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
-  - If your projects react native version is higher then 0.65.0 then you should add `jcenter()` into `android/build.gradle` (Add into repositories under allprojects)
   - Make sure your min gradle version is "3.6.4" or higher in `android/build.gradle`. (Check troubleshooting section to see example)
-  
+  - Add code below into `android/build.gradle` (Add into repositories under allprojects)
+  ```
+  maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }
+  maven { url 'https://developer.huawei.com/repo/' }
+  ```
 
+- **Notes for android**
+  - If your project's react native version is higher than 0.65.0 then you should add `jcenter()` into `android/build.gradle` (Add into repositories under allprojects)
 
 ---
 
@@ -72,7 +76,7 @@ import DeepWall from 'deepwall-react-native-sdk';
 
 DeepWall.getInstance().requestPaywall('{ACTION_KEY}');
 
-// You can send extra parameter if needed as below
+// You can send extra parameter if needed
 DeepWall.getInstance().requestPaywall('{ACTION_KEY}', {'sliderIndex': 2, 'title': 'Deepwall'});
 ```
 
@@ -169,6 +173,13 @@ DeepWall.getInstance().sendExtraDataToPaywall({appName: "My awesome app"});
 
 
 ### Android Only Methods
+
+- You can set orientation when calling requestPaywall method.
+```javascript
+import DeepWall, {DeepWallDeviceOrientations} from 'deepwall-react-native-sdk';
+
+DeepWall.getInstance().requestPaywall('{ACTION_KEY}', {}, DeepWallDeviceOrientations.LANDSCAPE);
+```
 
 - For consumable products, you need to mark the purchase as consumed for consumable product to be purchased again.
 ```javascript

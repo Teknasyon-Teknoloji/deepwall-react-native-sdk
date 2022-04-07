@@ -5,6 +5,7 @@ import SdkEventListener from './SdkEventListener';
 import CommonMethods from './Methods/CommonMethods';
 import AndroidMethods from './Methods/AndroidMethods';
 import IosMethods from './Methods/IosMethods';
+import DeviceOrientations from '../Enums/DeviceOrientations';
 
 export default class DeepWall {
   nativeDeepWall;
@@ -71,8 +72,12 @@ export default class DeepWall {
     return this;
   }
 
-  requestPaywall(actionKey, extraData = null) {
-    new CommonMethods(this.nativeDeepWall).requestPaywall(actionKey, extraData);
+  requestPaywall(
+    actionKey,
+    extraData = null,
+    orientation = DeviceOrientations.PORTRAIT
+  ) {
+    new CommonMethods(this.nativeDeepWall).requestPaywall(actionKey, extraData, orientation);
   }
 
   closePaywall() {

@@ -1,8 +1,8 @@
-import {Platform} from 'react-native';
 import DeepWallException from '../../Exceptions/DeepWallException';
 import ErrorCodes from '../../Enums/ErrorCodes';
 import ProrationTypes from '../../Enums/ProrationTypes';
 import UpgradePolicies from '../../Enums/UpgradePolicies';
+import {IS_ANDROID} from '../utils';
 
 export default class AndroidMethods {
   nativeDeepWall;
@@ -11,15 +11,11 @@ export default class AndroidMethods {
     this.nativeDeepWall = nativeDeepWall;
   }
 
-  isAndroid() {
-    return Platform.OS === 'android'
-  }
-
   /**
    * @param productId string
    */
   consumeProduct(productId) {
-    if (!this.isAndroid()) {
+    if (!IS_ANDROID) {
       return;
     }
 
@@ -35,7 +31,7 @@ export default class AndroidMethods {
    * @param upgradePolicy
    */
   setProductUpgradePolicy(prorationType, upgradePolicy) {
-    if (!this.isAndroid()) {
+    if (!IS_ANDROID) {
       return;
     }
 
@@ -50,7 +46,7 @@ export default class AndroidMethods {
    * @param upgradePolicy
    */
   updateProductUpgradePolicy(prorationType, upgradePolicy) {
-    if (!this.isAndroid()) {
+    if (!IS_ANDROID) {
       return;
     }
 

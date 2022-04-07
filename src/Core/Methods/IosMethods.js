@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import {IS_IOS} from '../utils';
 
 export default class IosMethods {
   nativeDeepWall;
@@ -7,15 +7,11 @@ export default class IosMethods {
     this.nativeDeepWall = nativeDeepWall;
   }
 
-  isIos() {
-    return Platform.OS === 'ios'
-  }
-
   /**
    * hidePaywallLoadingIndicator
    */
   hidePaywallLoadingIndicator() {
-    if (!this.isIos()) {
+    if (!IS_IOS) {
       return;
     }
 
@@ -29,7 +25,7 @@ export default class IosMethods {
    * @param extraData
    */
   requestAppTracking(actionKey, extraData = null) {
-    if (!this.isIos()) {
+    if (!IS_IOS) {
       return;
     }
 
@@ -42,7 +38,7 @@ export default class IosMethods {
    * @param extraData
    */
   sendExtraDataToPaywall(extraData) {
-    if (!this.isIos()) {
+    if (!IS_IOS) {
       return;
     }
 
