@@ -85,9 +85,10 @@ export default class CommonMethods {
   /**
    * @param actionKey
    * @param extraData
+   * @param orientation
    */
-  requestPaywall(actionKey, extraData = null) {
-    this.nativeDeepWall.requestPaywall(actionKey, extraData);
+  requestPaywall(actionKey, extraData, orientation) {
+    this.nativeDeepWall.requestPaywall(actionKey, extraData, orientation);
   }
 
   /**

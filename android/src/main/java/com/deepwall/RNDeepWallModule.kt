@@ -49,7 +49,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
 
       if (reactContext.hasCurrentActivity()) {
         initDeepWallWith(
-          currentActivity!!.application,
+          Platform.GOOGLE,
           currentActivity!!,
           apiKey!!,
           deepWallEnvironment
@@ -64,7 +64,7 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
 
         if(reactContext.hasCurrentActivity()) {
           initDeepWallWith(
-            currentActivity!!.application,
+            Platform.GOOGLE,
             currentActivity!!,
             apiKey!!,
             deepWallEnvironment
@@ -107,14 +107,15 @@ open class RNDeepWallModule(private val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun requestPaywall(actionKey: String, extraData: ReadableMap? = null) {
-    var hashMap: HashMap<String, Any> = HashMap()
-    var bundle = Bundle()
-    if (extraData != null) {
-      hashMap = extraData.toHashMap()
-      bundle.putSerializable("data", hashMap)
-    }
-    DeepWall.showPaywall(this.currentActivity!!, actionKey, bundle)
+  fun requestPaywall(actionKey: String, extraData: ReadableMap? = null, orientation: Int = 1) {
+    val deviceOrientation = if (orientation == 1) PaywallOrientation.PORTRAIT else PaywallOrientation.LANDSCAPE
+
+    DeepWall.showPaywall(
+      this.currentActivity!!,
+      actionKey,
+      Arguments.toBundle(extraData),
+      orientation = deviceOrientation
+    )
   }
 
   @ReactMethod
