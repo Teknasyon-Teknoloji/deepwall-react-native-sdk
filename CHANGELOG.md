@@ -1,7 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.5...main)
+## [Unreleased](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/3.0.0...main)
+
+
+---
+
+
+## [3.0.0 (2022-04-08)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.5..3.0.0)
 ### Changed
 - On Android, `deepwall-core` version upgraded to version `2.6.2`
 - On android fixed extraData error when paywall opens
@@ -9,10 +15,6 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - On android added orientation parameter to `requestPaywall` method
-
-
----
-
 
 ## [2.9.5 (2022-01-26)](https://github.com/Teknasyon-Teknoloji/deepwall-react-native-sdk/compare/2.9.4..2.9.5)
 ### Fixed
