@@ -1,5 +1,5 @@
 platform :ios, '10.0'
 
 target 'RNDeepWall' do
-  pod 'DeepWall', '2.3.0'
+  pod 'DeepWall', '2.4.2'
 end
